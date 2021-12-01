@@ -1,0 +1,21 @@
+.design1{
+    background-color: gray;
+    /* background-color: #1f5156; */
+   }
+   span{
+       font-family: 'Poppins', sans-serif;
+       color: white;
+   }
+span:hover{
+       color: #ffc107;
+       box-sizing: border-box;
+       
+   }
+   .nav-item {
+       line-height: 40px;
+   }
+   .item2{
+       border: 1px solid orange;
+       padding: 5px;
+   }
+   
