@@ -10,15 +10,15 @@ const Attributions = () => {
         Contribute!
       </p>
       <br />
-      <link href="">Contributors</link>
+      <a href="">Contributors</a>
       <hr />
       <h1>Software & Libraries</h1>
-      <link href="">Castle Windsor</link>
+      <a href="">Castle Windsor</a>
       pThe DI/IoC in Rubberduck is brought to you by the powerful Castle Windsor
       IoC container. Licensed under{" "}
-      <link rel="stylesheet" href="">
+      <a rel="stylesheet" href="">
         Apache 2.0.
-      </link>
+      </a>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
         asperiores dolores doloribus quisquam aperiam recusandae ipsam fugit
