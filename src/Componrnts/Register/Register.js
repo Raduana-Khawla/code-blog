@@ -29,6 +29,7 @@ const Register = () => {
           <h2>Register: Create Account</h2>
           {!isLoading && (
             <form onSubmit={handleLoginSubmit}>
+            //Is it possible to keep this things in a html file and load that??
               <input
                 type="name"
                 name=""
