@@ -28,7 +28,7 @@ export default function ContactUs() {
   }
 
   return (
-    <section className="contact bg-secondary py-5">
+    <section className="contact py-5">
       <div className="container">
         <div className="row">
           <div className="section-header text-center text-white">
