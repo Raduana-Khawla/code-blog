@@ -2,6 +2,7 @@ import React from "react";
 
 const Attributions = () => {
   return (
+    //Same apply for this. Make new html and load that.
     <div>
       <h1>Attributions</h1>
       <p>
