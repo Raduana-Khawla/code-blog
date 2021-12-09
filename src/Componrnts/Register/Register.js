@@ -29,7 +29,8 @@ const Register = () => {
           <h2>Register: Create Account</h2>
           {!isLoading && (
             <form onSubmit={handleLoginSubmit}>
-            //Is it possible to keep this things in a html file and load that??
+              //Is it possible to keep this things in a html file and load
+              that??
               <input
                 type="name"
                 name=""
@@ -67,7 +68,6 @@ const Register = () => {
               <br />
               <br />
               <input className="btn-primary" type="submit" value="submit" />
-
               <p>
                 Already Registered? Please Login{" "}
                 <Link to="/login">
@@ -79,9 +79,6 @@ const Register = () => {
           {isLoading}
           {user?.email}
           {authError && alert("error") > { authError }}
-          {/* {isLoading} */}
-          {/* {user?.email && alert("User Created successfully!")}
-          {authError && alert("error") > { authError }} */}
         </div>
       </div>
     </div>
