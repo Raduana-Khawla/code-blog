@@ -7,14 +7,14 @@ const Post = () => {
   const { user } = useAuth();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addReview", {
+    fetch("http://localhost:5000/addPost", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Review Done!");
+        alert("Post Done!");
       });
 
     console.log(data);
@@ -34,23 +34,31 @@ const Post = () => {
         <br />
         <input
           className="input-field"
+          name="name"
+          value={user?.displayName}
+          type="name"
+          {...register("name", { required: true })}
+        />
+        <br />
+        <input
+          className="input-field"
           name="img"
-          value={user?.photoURL}
+          placeholder="Put Your image"
           {...register("img", { required: true })}
         />
         <br />
         <input
           className="input-field"
-          name="comments"
-          placeholder="Comments"
-          {...register("comments", { required: true })}
+          name="post"
+          placeholder="Posts"
+          {...register("post", { required: true })}
         />
         <br />
         <input
           className="input-field"
-          name="rating"
-          placeholder="Rating"
-          {...register("rating", { required: true })}
+          name="date"
+          placeholder="Date"
+          {...register("date", { required: true })}
         />
         <br />
 
