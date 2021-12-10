@@ -43,8 +43,8 @@ export default function ContactUs() {
             />
             <div className="p-3 text-left text-light">
               <h1 className="text-danger">Leave Your Message</h1>
-              <h6>Phone: +880 00000</h6>
-              <h6>Email: raduanakhawla468@gmail.com</h6>
+              <h6 className="text-dark">Phone: +880 00000</h6>
+              <h6 className="text-dark">Email: raduanakhawla468@gmail.com</h6>
             </div>
             <div className="p-3">
               <a

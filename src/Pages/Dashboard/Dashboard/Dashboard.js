@@ -34,9 +34,9 @@ const Dashbaord = () => {
   console.log(isAdmi);
   return (
     <div>
-      <div className="dashboard-container ">
+      <div className="dashboard-container">
         <div className="row">
-          <div className="col-md-3 ">
+          <div className="col-md-3">
             <div className="dashboard">
               <h5>Dashboard</h5>
               <Link to={`${url}/userPost`}>
@@ -60,6 +60,7 @@ const Dashbaord = () => {
             </div>
           </div>
           <div className="col-md-9">
+            <h2>Welcome in our website</h2>
             <Switch>
               <Route exact path={`${path}/userPost`}>
                 <UserPost></UserPost>
