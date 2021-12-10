@@ -1,10 +1,19 @@
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
+  Alert,
+} from "@mui/material";
 import React, { useState } from "react";
+import { Grid } from "@mui/material";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { Link, useLocation, useHistory } from "react-router-dom";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { loginUser, signInWithGoogle } = useAuth();
+  const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
 
   const location = useLocation();
   const history = useHistory();
@@ -25,63 +34,61 @@ const Login = () => {
     signInWithGoogle(location, history);
   };
   return (
-    <div className=" container">
-      <div className="row align-items-center" style={{ height: "100vh" }}>
-        <div className="col-md-6 col-sm-12 shadow p-5 design1">
-          <h3>Login</h3>
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+          <Typography variant="body1" gutterBottom>
+            Login
+          </Typography>
           <form onSubmit={handleLoginSubmit}>
-            <div className="form-group">
-              <label htmlFor="">User Email</label>
-              <input
-                type="email"
-                onChange={handleOnChange}
-                className="form-control"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="">User Name</label>
-              <input type="text" className="form-control" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="">Password</label>
-              <input
-                type="password"
-                onChange={handleOnChange}
-                className="form-control"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="" className="text-danger">
-                Forgot your password?
-              </label>
-            </div>
-            <div className="mt-3">
-              <input className="bg-danger" type="submit" value="submit" />
-            </div>
-            <p className="mt-3">
-              new to dental-clinic?
-              <Link to="/register">
-                <span className="text-white">New User? Please Register</span>
-              </Link>
-            </p>
-            {/* {isLoading}
-            {user?.email > alert("Login successfully!")}
-            {authError && alert("error") > { authError }} */}
-            <br />
-            <button className="btn-primary" onClick={handleGoogleSignIn}>
-              Google Sign In
-            </button>
+            <TextField
+              sx={{ width: "75%", m: 1 }}
+              id="standard-basic"
+              label="Your Email"
+              name="email"
+              onChange={handleOnChange}
+              variant="standard"
+            />
+            <TextField
+              sx={{ width: "75%", m: 1 }}
+              id="standard-basic"
+              label="Your Password"
+              type="password"
+              name="password"
+              onChange={handleOnChange}
+              variant="standard"
+            />
+
+            <Button
+              sx={{ width: "75%", m: 1 }}
+              type="submit"
+              variant="contained"
+            >
+              Login
+            </Button>
+            <NavLink style={{ textDecoration: "none" }} to="/register">
+              <Button variant="text">New User? Please Register</Button>
+            </NavLink>
+            {isLoading && <CircularProgress />}
+            {user?.email && (
+              <Alert severity="success">Login successfully!</Alert>
+            )}
+            {authError && <Alert severity="error">{authError}</Alert>}
           </form>
-        </div>
-        <div className="col-md-6 col-sm-12 d-none d-md-block">
+          <p>------------------------</p>
+          <Button onClick={handleGoogleSignIn} variant="contained">
+            Google Sign In
+          </Button>
+        </Grid>
+        <Grid item sx={{ my: 2 }} xs={12} md={6}>
           <img
-            className="img-fluid"
+            style={{ width: "100%" }}
             src="https://i.ibb.co/56LpdQw/login-page.gif"
             alt=""
           />
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

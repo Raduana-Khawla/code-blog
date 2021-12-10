@@ -1,28 +1,29 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../../../hooks/useAuth";
+import "./UserPost.css";
 
-const Post = () => {
+const UserPost = () => {
   const { register, handleSubmit } = useForm();
   const { user } = useAuth();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addReview", {
+    fetch("http://localhost:5000/addPost", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Review Done!");
+        alert("Post Done!");
       });
 
     console.log(data);
   };
 
   return (
-    <div className="bg my-5 p-5">
-      <h1>Review</h1>
+    <div className="bg my-5">
+      <h1>User Post</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input-field"
@@ -32,36 +33,48 @@ const Post = () => {
           {...register("email", { required: true })}
         />
         <br />
+        <br />
+        <input
+          className="input-field"
+          name="name"
+          value={user?.displayName}
+          type="name"
+          {...register("name", { required: true })}
+        />
+        <br />
+        <br />
         <input
           className="input-field"
           name="img"
-          value={user?.photoURL}
+          placeholder="Put Your image"
           {...register("img", { required: true })}
         />
         <br />
-        <input
-          className="input-field"
-          name="comments"
-          placeholder="Comments"
-          {...register("comments", { required: true })}
-        />
         <br />
         <input
           className="input-field"
-          name="rating"
-          placeholder="Rating"
-          {...register("rating", { required: true })}
+          name="post"
+          placeholder="Posts"
+          {...register("post", { required: true })}
         />
         <br />
-
+        <br />
         <input
-          className="submit-btn btn btn-danger mt-3"
+          className="input-field"
+          name="date"
+          placeholder="Date"
+          {...register("date", { required: true })}
+        />
+        <br />
+        <br />
+        <input
+          className="submit-btn btn btn-danger mt-3 px-5"
           type="submit"
-          value="Review"
+          value="post"
         />
       </form>
     </div>
   );
 };
 
-export default Post;
+export default UserPost;
