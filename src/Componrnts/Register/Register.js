@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
-import register from "../../Images/registration.gif";
 import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -95,8 +94,12 @@ const Register = () => {
           )}
           {authError && <Alert severity="error">{authError}</Alert>}
         </Grid>
-        <Grid item xs={12} md={6}>
-          <img style={{ width: "100%" }} src={register} alt="" />
+        <Grid item sx={{ mt: 13 }} xs={12} md={6}>
+          <img
+            style={{ width: "100%" }}
+            src="https://i.ibb.co/1Trd22k/registernowgif.gif"
+            alt=""
+          />
         </Grid>
       </Grid>
     </Container>

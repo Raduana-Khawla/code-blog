@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
-import login from "../../../Images/loginUser.gif";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
@@ -81,8 +80,12 @@ const Login = () => {
             Google Sign In
           </Button>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <img style={{ width: "100%" }} src={login} alt="" />
+        <Grid item sx={{ my: 2 }} xs={12} md={6}>
+          <img
+            style={{ width: "100%" }}
+            src="https://i.ibb.co/56LpdQw/login-page.gif"
+            alt=""
+          />
         </Grid>
       </Grid>
     </Container>

@@ -41,9 +41,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/dashboard">
+            <PrivetRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivetRoute>
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>

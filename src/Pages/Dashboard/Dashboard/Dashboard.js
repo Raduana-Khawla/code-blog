@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import "./Dashboard.css";
 import MakeAdmin from "../../Dashboard/MakeAdmin/MakeAdmin";
-import UserPost from "../UserPost/UserPost";
+import UserPost from "../UserPost/UserPost/UserPost";
 import SinglePost from "../UserPost/SinglePost/SinglePost";
 import ShowsPost from "../UserPost/ShowsPost/ShowsPost";
 import useAuth from "../../../hooks/useAuth";
