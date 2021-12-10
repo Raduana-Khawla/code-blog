@@ -66,7 +66,7 @@ export default function ContactUs() {
                 style={{ textDecoration: "none" }}
                 className="text-warning p-3"
               >
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </div>
           </div>

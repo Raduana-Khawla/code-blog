@@ -1,10 +1,10 @@
 import React from "react";
-import SinglePost from "../Dashboard/UserPost/SinglePost/SinglePost";
+import AllPosts from "../Dashboard/UserPost/AllPosts/AllPosts";
 
 const Blogs = () => {
   return (
     <div>
-      <SinglePost></SinglePost>
+      <AllPosts></AllPosts>
     </div>
   );
 };

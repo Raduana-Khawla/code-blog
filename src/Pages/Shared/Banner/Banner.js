@@ -27,15 +27,15 @@ const Banner = () => {
       <div className="container w-50 h-50">
         <div
           id="carouselExampleIndicators"
-          class="carousel slide"
+          className="carousel slide"
           data-bs-ride="carousel"
         >
-          <div class="carousel-indicators">
+          <div className="carousel-indicators">
             <button
               type="button"
               data-bs-target="#carouselExampleIndicators"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -52,46 +52,52 @@ const Banner = () => {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
               <img
                 src="https://i.ibb.co/4M5fcq5/maruf-hero.png?fbclid=IwAR1ea4hFC_YLTkH7RYfW6rq8sIW7ayoORFfIQjr5queca2rfzYp4-JqHo1w"
-                class="d-block w-100 h-50"
+                className="d-block w-100 h-50"
                 alt="..."
               />
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="https://i.ibb.co/y6tkMrW/Coding-giphy1.gif"
-                class="d-block w-100 h-50"
+                className="d-block w-100 h-50"
                 alt="..."
               />
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <img
                 src="https://i.ibb.co/1X44F8v/Coding-giphy11.gif"
-                class="d-block w-100 h-50"
+                className="d-block w-100 h-50"
                 alt="..."
               />
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </div>

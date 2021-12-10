@@ -1,67 +1,67 @@
-// [
-//   {
-//     _id: "1",
-//     name: "Robert",
-//     date: "12/7/21",
-//     post: "write",
-//   },
-// ];
-import React from "react";
-import "./Blogs.css";
-import Highlight from "react-highlight";
+// // [
+// //   {
+// //     _id: "1",
+// //     name: "Robert",
+// //     date: "12/7/21",
+// //     post: "write",
+// //   },
+// // ];
+// import React from "react";
+// import "./Blogs.css";
+// import Highlight from "react-highlight";
 
-const Blogs = () => {
-  document.addEventListener("DOMContentLoaded", () => {
-    hljs.initHighlightingOnLoad();
-    const codeBlock = document.getElementById("code");
-    const copyButton = document.getElementById("copy-button");
-    const copySuccess = document.getElementById("copy-success");
+// const Blogs = () => {
+//   document.addEventListener("DOMContentLoaded", () => {
+//     hljs.initHighlightingOnLoad();
+//     const codeBlock = document.getElementById("code");
+//     const copyButton = document.getElementById("copy-button");
+//     const copySuccess = document.getElementById("copy-success");
 
-    const copyTextHandler = () => {
-      const text = codeBlock.innerText;
-      // 2nd version - Clipboard API
-      navigator.clipboard.writeText(text).then(
-        () => {
-          copySuccess.classList.add("show-message");
-          setTimeout(() => {
-            copySuccess.classList.remove("show-message");
-          }, 2500);
-        },
-        () => {
-          console.log("Error writing to the clipboard");
-        }
-      );
-    };
-    copyButton.addEventListener("click", copyTextHandler);
-  });
+//     const copyTextHandler = () => {
+//       const text = codeBlock.innerText;
+//       // 2nd version - Clipboard API
+//       navigator.clipboard.writeText(text).then(
+//         () => {
+//           copySuccess.classList.add("show-message");
+//           setTimeout(() => {
+//             copySuccess.classList.remove("show-message");
+//           }, 2500);
+//         },
+//         () => {
+//           console.log("Error writing to the clipboard");
+//         }
+//       );
+//     };
+//     copyButton.addEventListener("click", copyTextHandler);
+//   });
 
-  return (
-    <section>
-      <div class="container">
-        <p class="language" id="language-copy">
-          javascript
-        </p>
-        <div class="code-wrapper">
-          <pre>
-            <code>{`
-            hljs = require('highlight.js');
-        function getParameterByName(name, url) {
-                if (!url) url = window.location.href;
-                name = name.replace(/[\[\]]/g, "\\$&");
-                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                    results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
-                return decodeURIComponent(results[2].replace(/\+/g, " "));
-            }
-`}</code>
-          </pre>
-          <button id="copy-button">copy</button>
-        </div>
-        <span id="copy-success">Code copied! :)</span>
-      </div>
-    </section>
-  );
-};
+//   return (
+//     <section>
+//       <div className="container">
+//         <p className="language" id="language-copy">
+//           javascript
+//         </p>
+//         <div className="code-wrapper">
+//           <pre>
+//             <code>{`
+//             hljs = require('highlight.js');
+//         function getParameterByName(name, url) {
+//                 if (!url) url = window.location.href;
+//                 name = name.replace(/[\[\]]/g, "\\$&");
+//                 var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+//                     results = regex.exec(url);
+//                 if (!results) return null;
+//                 if (!results[2]) return '';
+//                 return decodeURIComponent(results[2].replace(/\+/g, " "));
+//             }
+// `}</code>
+//           </pre>
+//           <button id="copy-button">copy</button>
+//         </div>
+//         <span id="copy-success">Code copied! :)</span>
+//       </div>
+//     </section>
+//   );
+// };
 
-export default Blogs;
+// export default Blogs;

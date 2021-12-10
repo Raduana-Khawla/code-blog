@@ -7,8 +7,8 @@ const Navbar = () => {
   const { user, logOut } = UseFirebase();
   return (
     <div>
-      <nav class="navbar design1 navbar-expand-lg navbar-light">
-        <div class="container-fluid">
+      <nav className="navbar design1 navbar-expand-lg navbar-light">
+        <div className="container-fluid">
           <Link className="navbar-brand fw-bold" to="/">
             <img
               className=""
@@ -19,7 +19,7 @@ const Navbar = () => {
             />
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo01"
@@ -27,9 +27,9 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link" to="/home">

@@ -26,7 +26,7 @@ const Footer = () => {
           style={{ textDecoration: "none" }}
           className="text-primary p-3"
         >
-          <i class="fab fa-linkedin"></i>
+          <i className="fab fa-linkedin"></i>
         </a>
         <a
           href=""
