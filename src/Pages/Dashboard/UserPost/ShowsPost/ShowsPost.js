@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import UserPost from "../UserPost/UserPost";
+import SinglePost from "../SinglePost/SinglePost";
 
-const PostShows = () => {
-  const [reviews, setReviews] = useState([]);
+const ShowsPost = () => {
+  const [posts, setPosts] = useState([]);
   //loading data
   useEffect(() => {
-    fetch("http://localhost:8000/addReview")
+    fetch("http://localhost:5000/addPost")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setReviews(data);
+        setPosts(data);
       });
   }, []);
 
@@ -21,8 +21,8 @@ const PostShows = () => {
           opinion that really matters
         </p>
         <div className="col col-12">
-          {reviews.map((review) => (
-            <UserPost key={review.name} review={review}></UserPost>
+          {posts.map((post) => (
+            <SinglePost key={post.name} post={post}></SinglePost>
           ))}
         </div>
       </div>
@@ -30,4 +30,4 @@ const PostShows = () => {
   );
 };
 
-export default PostShows;
+export default ShowsPost;

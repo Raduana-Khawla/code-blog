@@ -11,6 +11,7 @@ import Register from "./Componrnts/Register/Register";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
             </Route>
             <Route exact path="*">
               <NotFound></NotFound>

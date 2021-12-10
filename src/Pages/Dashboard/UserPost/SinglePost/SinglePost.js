@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserPost = (props) => {
-  const { name, rating, comments, img } = props.review;
+  const { name, rating, comments, img } = props.post;
   console.log(rating);
   return (
     <div className="container">

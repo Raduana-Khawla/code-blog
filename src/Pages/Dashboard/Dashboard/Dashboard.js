@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import "./Dashboard.css";
-import Review from "../../Review/Review";
 import MakeAdmin from "../../Dashboard/MakeAdmin/MakeAdmin";
+import UserPost from "../UserPost/UserPost";
+import SinglePost from "../UserPost/SinglePost/SinglePost";
+import ShowsPost from "../UserPost/ShowsPost/ShowsPost";
 import useAuth from "../../../hooks/useAuth";
 
 const Dashbaord = () => {
@@ -37,8 +39,14 @@ const Dashbaord = () => {
           <div className="col-md-3 ">
             <div className="dashboard">
               <h5>Dashboard</h5>
-              <Link to={`${url}/review`}>
-                <li className="dashboard-menu mt-5">Review</li>
+              <Link to={`${url}/userPost`}>
+                <li className="dashboard-menu mt-5">UserPost</li>
+              </Link>
+              <Link to={`${url}/singlePost`}>
+                <li className="dashboard-menu mt-5">SinglePost</li>
+              </Link>
+              <Link to={`${url}/showsPost`}>
+                <li className="dashboard-menu mt-5">ShowsPost</li>
               </Link>
               {isAdmi && (
                 <div className="admin-dashboard">
@@ -53,8 +61,14 @@ const Dashbaord = () => {
           </div>
           <div className="col-md-9">
             <Switch>
-              <Route exact path={`${path}/review`}>
-                <Review></Review>
+              <Route exact path={`${path}/userPost`}>
+                <UserPost></UserPost>
+              </Route>
+              <Route exact path={`${path}/singlePost`}>
+                <SinglePost></SinglePost>
+              </Route>
+              <Route exact path={`${path}/showsPost`}>
+                <ShowsPost></ShowsPost>
               </Route>
               <Route exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>

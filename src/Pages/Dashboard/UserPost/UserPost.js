@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 
-const Post = () => {
+const UserPost = () => {
   const { register, handleSubmit } = useForm();
   const { user } = useAuth();
 
@@ -65,11 +65,11 @@ const Post = () => {
         <input
           className="submit-btn btn btn-danger mt-3"
           type="submit"
-          value="Review"
+          value="post"
         />
       </form>
     </div>
   );
 };
 
-export default Post;
+export default UserPost;

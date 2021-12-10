@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
+import UseFirebase from "../../../hooks/UseFirebase";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut } = UseFirebase();
   return (
-    <div className="">
+    <div>
       <nav class="navbar design1 navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <Link className="navbar-brand fw-bold" to="/">
@@ -38,7 +38,12 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/blogs">
-                  <span>Blog</span>
+                  <span>Post</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/attributions">
+                  <span>Attributions</span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -47,27 +52,31 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/attributions">
-                  <span>Attributions</span>
+                <Link className="nav-link" to="/dashboard">
+                  <span>Dashboard</span>
                 </Link>
               </li>
+              {user?.email ? (
+                <button onClick={logOut} variant="light">
+                  Logout
+                </button>
+              ) : (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    <span>Login</span>
+                  </Link>
+                </li>
+              )}
+              <li className="nav-item">
+                <Link className="nav-link" to="/notFound">
+                  <span>NotFound</span>
+                </Link>
+              </li>
+              <span>Signed in as:</span>{" "}
+              <a className="text-warning" href="#login">
+                {user?.displayName}
+              </a>{" "}
             </ul>
-            {user?.email ? (
-              <button onClick={logOut} variant="light">
-                Logout
-              </button>
-            ) : (
-              <Link to="/login">
-                <span className="text-light p-3">Login</span>
-              </Link>
-            )}
-            <Link to="/notFound">
-              <span className="p-3">NotFound</span>
-            </Link>
-            <span className="p-3">Signed in as:</span>{" "}
-            <a className="text-warning" href="#login">
-              {user?.displayName}
-            </a>{" "}
           </div>
         </div>
       </nav>

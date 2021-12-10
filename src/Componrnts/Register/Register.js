@@ -1,6 +1,16 @@
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
+  Alert,
+} from "@mui/material";
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import useAuth from "./../../hooks/useAuth";
+import { Grid } from "@mui/material";
+import register from "../../Images/registration.gif";
+import { NavLink, useHistory } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -23,65 +33,73 @@ const Register = () => {
     e.preventDefault();
   };
   return (
-    <div className="container">
-      <div className="row align-items-center" style={{ height: "100vh" }}>
-        <div className="col-12 shadow p-5  bg-warning">
-          <h2>Register: Create Account</h2>
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+          <Typography variant="body1" gutterBottom>
+            Register
+          </Typography>
           {!isLoading && (
             <form onSubmit={handleLoginSubmit}>
-              //Is it possible to keep this things in a html file and load
-              that??
-              <input
-                type="name"
-                name=""
-                id=""
-                placeholder="Your Name"
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="Your Name"
+                name="name"
                 onBlur={handleOnBlur}
+                variant="standard"
               />
-              <br />
-              <br />
-              <input
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="Your Email"
+                name="email"
                 type="email"
-                name=""
-                id=""
-                placeholder="Your Email"
                 onBlur={handleOnBlur}
+                variant="standard"
               />
-              <br />
-              <br />
-              <input
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="Your Password"
                 type="password"
-                name=""
-                id=""
-                placeholder="Your Password"
+                name="password"
                 onBlur={handleOnBlur}
+                variant="standard"
               />
-              <br />
-              <br />
-              <input
+              <TextField
+                sx={{ width: "75%", m: 1 }}
+                id="standard-basic"
+                label="ReType Your Password"
                 type="password"
-                name=""
-                id=""
-                placeholder="Re-enter Password"
+                name="password2"
                 onBlur={handleOnBlur}
+                variant="standard"
               />
-              <br />
-              <br />
-              <input className="btn-primary" type="submit" value="submit" />
-              <p>
-                Already Registered? Please Login{" "}
-                <Link to="/login">
-                  <span className="text-white">Login</span>
-                </Link>
-              </p>
+
+              <Button
+                sx={{ width: "75%", m: 1 }}
+                type="submit"
+                variant="contained"
+              >
+                Register
+              </Button>
+              <NavLink style={{ textDecoration: "none" }} to="/login">
+                <Button variant="text">Already Registered? Please Login</Button>
+              </NavLink>
             </form>
           )}
-          {isLoading}
-          {user?.email}
-          {authError && alert("error") > { authError }}
-        </div>
-      </div>
-    </div>
+          {isLoading && <CircularProgress />}
+          {user?.email && (
+            <Alert severity="success">User Created successfully!</Alert>
+          )}
+          {authError && <Alert severity="error">{authError}</Alert>}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <img style={{ width: "100%" }} src={register} alt="" />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
