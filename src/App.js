@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import Blogs from "./Pages/Blogs/Blogs";
+import AllPosts from "./Pages/AllPosts/AllPosts";
 import ContactUs from "./Pages/Contact/Contact";
 import Attributions from "./Pages/Attributions/Attributions";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
@@ -12,6 +12,7 @@ import Navbar from "./Pages/Shared/Navbar/Navbar";
 import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import ShowsPost from "./Pages/ShowsPost/ShowsPost";
 
 function App() {
   return (
@@ -26,9 +27,12 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <PrivetRoute path="/blogs">
-              <Blogs></Blogs>
-            </PrivetRoute>
+            <Route path="/allPosts">
+              <AllPosts></AllPosts>
+            </Route>
+            <Route path="/service/:singlePostId">
+              <ShowsPost></ShowsPost>
+            </Route>
             <Route path="/contact">
               <ContactUs></ContactUs>
             </Route>

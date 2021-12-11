@@ -5,11 +5,10 @@ const AllPosts = () => {
   const [posts, setPosts] = useState([]);
   //loading data
   useEffect(() => {
-    fetch("http://localhost:5000/addPost")
+    fetch("http://localhost:5000/allPosts")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
-        console.log("data");
       })
       .catch((err) => console.log(err));
   }, []);

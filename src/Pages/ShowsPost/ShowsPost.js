@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import useAuth from "../../../../hooks/useAuth";
+import { useParams } from "react-router-dom";
 import "./ShowsPost.css";
 
 const ShowsPost = () => {
   const [showDetail, setShowDetail] = useState({});
-  const { user } = useAuth();
   const { singlePostId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${singlePostId}`)
+    fetch(`http://localhost:5000/singleService/${singlePostId}`)
       .then((res) => res.json())
-      .then((data) => setShowDetail(data));
+      .then((data) => {
+        console.log(data);
+        setShowDetail(data);
+      })
+      .catch((err) => console.log(err));
   }, [singlePostId]);
 
   return (
@@ -22,7 +24,7 @@ const ShowsPost = () => {
           <div className="row container">
             <div className="col-md-8">
               <div className="card property1 rounded w-75 h-75 p-3 m-5">
-                <img className="w-100 h-50" src={showDetail?.imageURL} alt="" />
+                <img className="w-75 h-50" src={showDetail?.img} alt="" />
                 <h3>{showDetail?.name}</h3>
                 <div className="col-md-12 col-sm-12">
                   <div className="box body line-numbers">

@@ -3,9 +3,7 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import "./Dashboard.css";
 import MakeAdmin from "../../Dashboard/MakeAdmin/MakeAdmin";
 import UserPost from "../UserPost/UserPost/UserPost";
-import AllPosts from "../UserPost/AllPosts/AllPosts";
 import useAuth from "../../../hooks/useAuth";
-import ShowsPost from "../UserPost/ShowsPost/ShowsPost";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -42,12 +40,6 @@ const Dashbaord = () => {
               <Link to={`${url}/userPost`}>
                 <li className="dashboard-menu mt-5">UserPost</li>
               </Link>
-              <Link to={`${url}/allPosts`}>
-                <li className="dashboard-menu mt-5">AllPosts</li>
-              </Link>
-              <Link to={`${url}/singlePost/:singlePostId`}>
-                <li className="dashboard-menu mt-5">ShowsPost</li>
-              </Link>
               {isAdmi && (
                 <div className="admin-dashboard">
                   <li className="dashboard-menu mt-5">Orders list Admin</li>
@@ -64,12 +56,6 @@ const Dashbaord = () => {
             <Switch>
               <Route exact path={`${path}/userPost`}>
                 <UserPost></UserPost>
-              </Route>
-              <Route exact path={`${path}/allPosts`}>
-                <AllPosts></AllPosts>
-              </Route>
-              <Route exact path={`${path}/singlePost/:singlePostId`}>
-                <ShowsPost></ShowsPost>
               </Route>
               <Route exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>

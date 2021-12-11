@@ -1,13 +1,13 @@
 import React from "react";
-import Blogs from "../Blogs/Blogs";
 import ContactUs from "../Contact/Contact";
+import AllPosts from "../AllPosts/AllPosts";
 import Banner from "../Shared/Banner/Banner";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Blogs></Blogs>
+      <AllPosts></AllPosts>
       <ContactUs></ContactUs>
     </div>
   );
