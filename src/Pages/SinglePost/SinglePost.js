@@ -1,11 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./SinglePost.css";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
+import docco from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
 
 const SinglePost = (props) => {
   const { email, name, post, date, img, _id } = props?.post;
   console.log(_id);
-
+  SyntaxHighlighter.registerLanguage("javascript", js);
+  const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+  import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+  const Component = () => {
+    const codeString = '(num) => num + 1';
+    return (
+      <SyntaxHighlighter language="javascript" style={dark}>
+        {codeString}
+      </SyntaxHighlighter>
+    );
+  };`;
+  const codeString1 = `${post}`;
   return (
     <section>
       <div className="container my-5">
@@ -23,9 +37,26 @@ const SinglePost = (props) => {
             <div>
               <div className="col-md-12 col-sm-12">
                 <div class="box body line-numbers">
-                  <pre>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={docco}
+                    // lineProps={{ style: { paddingBottom: 8 } }}
+                    // wrapLines={true}
+                    // showLineNumbers={true}
+                  >
+                    {codeString1}
+                  </SyntaxHighlighter>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    useInlineStyles={true}
+                    startingLineNumber={true}
+                    style={docco}
+                  >
+                    {codeString}
+                  </SyntaxHighlighter>
+                  {/* <pre>
                     <code class="language-javascript">{`${post}`}</code>
-                  </pre>
+                  </pre> */}
                 </div>
               </div>
             </div>
