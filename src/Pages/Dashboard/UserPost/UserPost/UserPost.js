@@ -25,7 +25,7 @@ const UserPost = () => {
     <div className="bg my-5">
       <h1>User Post</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+        {/* <input
           className="input-field"
           name="email"
           value={user?.email}
@@ -34,10 +34,11 @@ const UserPost = () => {
         />
         <br />
         <br />
+        */}
         <input
           className="input-field"
           name="name"
-          value={user?.displayName}
+          placeholder="enter head-line"
           type="name"
           {...register("name", { required: true })}
         />

@@ -18,7 +18,7 @@ const AllPosts = () => {
       <div>
         {/* render Packages from server side */}
         {posts?.map((post) => (
-          <SinglePost key={post.name} post={post}></SinglePost>
+          <SinglePost post={post}></SinglePost>
         ))}
       </div>
     </section>

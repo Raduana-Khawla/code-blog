@@ -7,7 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
   const [isAdmi, setIsAdmin] = useState(false);
   const [isUser, setIsUser] = useState(false);
 
@@ -40,7 +40,7 @@ const Dashbaord = () => {
               <Link to={`${url}/userPost`}>
                 <li className="dashboard-menu mt-5">UserPost</li>
               </Link>
-              {isAdmi && (
+              {admin && (
                 <div className="admin-dashboard">
                   <li className="dashboard-menu mt-5">Orders list Admin</li>
 

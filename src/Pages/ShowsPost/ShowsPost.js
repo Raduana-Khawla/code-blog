@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ShowsPost.css";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
+import docco from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
 
 const ShowsPost = () => {
   const [showDetail, setShowDetail] = useState({});
@@ -16,24 +19,57 @@ const ShowsPost = () => {
       .catch((err) => console.log(err));
   }, [singlePostId]);
 
+  SyntaxHighlighter.registerLanguage("javascript", js);
+  const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+  import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+  const Component = () => {
+    const codeString = '(num) => num + 1';
+    return (
+      <SyntaxHighlighter language="javascript" style={dark}>
+        {codeString}
+      </SyntaxHighlighter>
+    );
+  };`;
+
   return (
     <>
-      <h1>Property Details</h1>
-      <div className="bg my-3 p-5">
-        <div className="details-container my-3 background">
-          <div className="row container">
-            <div className="col-md-8">
-              <div className="card property1 rounded w-75 h-75 p-3 m-5">
+      <div className="bg my-3 p-2">
+        <div className="details-container my-3">
+          <div className="row">
+            <div className="col-md-7 col-sm-7 my-5">
+              <div className="property1 rounded w-100 h-75">
+                <h3 className="text-dark ms-auto fs-5 fw-bold">
+                  {showDetail?.name}
+                </h3>
+                <h1 className="text-left fs-6">
+                  Posted on{showDetail?.date} by Code-Blog
+                </h1>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+                  iure ad culpa magni voluptatum modi deleniti vel assumenda a
+                  amet quae vero, provident quidem error voluptas illo
+                  voluptates. Ut, dolores?
+                </p>
                 <img className="w-75 h-50" src={showDetail?.img} alt="" />
-                <h3>{showDetail?.name}</h3>
-                <div className="col-md-12 col-sm-12">
-                  <div className="box body line-numbers">
-                    <pre>
+                <div className="box p-3 body">
+                  {/* <pre>
                       <code className="language-javascript">{`${showDetail?.post}`}</code>
-                    </pre>
-                  </div>
+                    </pre> */}
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={docco}
+                    className="p-5 line-numbers bg-secondary"
+                  >
+                    {codeString}
+                  </SyntaxHighlighter>
                 </div>
-                <h1>{showDetail?.date}</h1>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Facere mollitia totam error perferendis culpa, nostrum laborum
+                  voluptas praesentium obcaecati fugit deserunt odit, porro
+                  doloribus cum eos, vitae quae veniam! Reprehenderit.
+                </p>
               </div>
             </div>
           </div>

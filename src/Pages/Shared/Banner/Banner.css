@@ -1,3 +1,13 @@
 .container{
     font-family: 'Poppins', sans-serif;
 }
+.search-container{
+    /* background-color: rgba(0, 0, 0, 0.85); */
+    text-align: center;
+    line-height: 30px;
+    margin: 10px;
+    margin-top: 80px;
+}
+.search-container input{
+    width: 50%;
+}
