@@ -7,29 +7,8 @@ import useAuth from "../../../hooks/useAuth";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
-  const { user, admin } = useAuth();
-  const [isAdmi, setIsAdmin] = useState(false);
-  const [isUser, setIsUser] = useState(false);
+  const { admin } = useAuth();
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data[0]?.role === "admin") {
-          setIsAdmin(true);
-        } else {
-          setIsAdmin(false);
-        }
-        if (data[0]) {
-          setIsUser(true);
-          setIsAdmin(true);
-        } else {
-          setIsUser(false);
-          setIsAdmin(true);
-        }
-      });
-  }, [user?.email]);
-  console.log(isAdmi);
   return (
     <div>
       <div className="dashboard-container">
