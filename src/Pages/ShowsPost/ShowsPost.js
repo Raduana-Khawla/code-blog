@@ -2,13 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CodeEditor from "../../Componrnts/CodeEditor/CodeEditor";
 import "./ShowsPost.css";
-// import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-// import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
-// import docco from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
+import axios from "axios";
+import UserComments from "../Dashboard/UserComments/UserComments";
 
-const ShowsPost = () => {
+const ShowsPost = (props) => {
+  const [CommentLists, setCommentLists] = useState([]);
+  const [video, setVideo] = useState([]);
   const [showDetail, setShowDetail] = useState({});
   const { singlePostId } = useParams();
+  const { videoId } = useParams();
+
+  const videoVariable = {
+    videoId: videoId,
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/singleService/${singlePostId}`)
@@ -16,21 +22,25 @@ const ShowsPost = () => {
       .then((data) => {
         console.log(data);
         setShowDetail(data);
+        setVideo(data);
       })
       .catch((err) => console.log(err));
   }, [singlePostId]);
 
-  // SyntaxHighlighter.registerLanguage("javascript", js);
-  // const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-  // import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-  // const Component = () => {
-  //   const codeString = '(num) => num + 1';
-  //   return (
-  //     <SyntaxHighlighter language="javascript" style={dark}>
-  //       {codeString}
-  //     </SyntaxHighlighter>
-  //   );
-  // };`;
+  useEffect(() => {
+    axios.post("/api/comment/getComments", videoVariable).then((response) => {
+      if (response.data.success) {
+        console.log("response.data.comments", response.data.comments);
+        setCommentLists(response.data.comments);
+      } else {
+        alert("Failed to get video Info");
+      }
+    });
+  }, []);
+
+  const updateComment = (newComment) => {
+    setCommentLists(CommentLists.concat(newComment));
+  };
 
   return (
     <>
@@ -62,6 +72,11 @@ const ShowsPost = () => {
                   voluptas praesentium obcaecati fugit deserunt odit, porro
                   doloribus cum eos, vitae quae veniam! Reprehenderit.
                 </p>
+                <UserComments
+                  CommentLists={CommentLists}
+                  postId={video._id}
+                  refreshFunction={updateComment}
+                />
               </div>
             </div>
           </div>
