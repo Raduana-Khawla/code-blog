@@ -8,18 +8,18 @@ const Banner = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/allPosts`)
-  //     .then(function (response) {
-  //       // handle success
-  //       setPosts(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       // handle error
-  //       console.log(error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/allPosts`)
+      .then(function (response) {
+        // handle success
+        setPosts(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
 
   const handleSearchBtn = () => {
     if (searchValue) {

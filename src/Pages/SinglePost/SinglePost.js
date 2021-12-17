@@ -1,28 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./SinglePost.css";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
-import docco from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
+import {
+  Line,
+  LineContent,
+  LineNo,
+  Pre,
+} from "../../Componrnts/CodeEditor/Style/StyledComponent";
+import CodeEditor from "../../Componrnts/CodeEditor/CodeEditor";
 
 const SinglePost = (props) => {
   const { name, post, date, img, _id } = props?.post;
   console.log(props.post);
 
-  SyntaxHighlighter.registerLanguage("javascript", js);
-  const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-  import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-  const Component = () => {
-    const codeString = '(num) => num + 1';
-    return (
-      <SyntaxHighlighter language="javascript" style={dark}>
-        {codeString}
-      </SyntaxHighlighter>
-    );
-  };`;
-
-  const codeString1 = `${post}`;
-
+  const codeString = `${post}`;
   return (
     <section>
       <div className="container my-5">
@@ -41,19 +34,40 @@ const SinglePost = (props) => {
               <img className="w-75 h-50" src={img} alt="" />
             </div>
             <div>
-              <div className="col-md-12 col-sm-12">
-                <div className="box body p-3">
-                  <SyntaxHighlighter language="javascript" style={docco}>
-                    {codeString1}
-                  </SyntaxHighlighter>
-                  <SyntaxHighlighter
-                    language="javascript"
-                    style={docco}
-                    className="p-5 line-numbers bg-secondary"
-                  >
-                    {codeString}
-                  </SyntaxHighlighter>
-                </div>
+              <CodeEditor></CodeEditor>
+            </div>
+            <div>
+              <div>
+                <Highlight
+                  {...defaultProps}
+                  theme={theme}
+                  code={codeString}
+                  language="js"
+                >
+                  {({
+                    className,
+                    style,
+                    tokens,
+                    getLineProps,
+                    getTokenProps,
+                  }) => (
+                    <Pre className={className} style={style}>
+                      {tokens.map((line, i) => (
+                        <Line key={i} {...getLineProps({ line, key: i })}>
+                          <LineNo>{i + 1}</LineNo>
+                          <LineContent>
+                            {line.map((token, key) => (
+                              <span
+                                key={key}
+                                {...getTokenProps({ token, key })}
+                              />
+                            ))}
+                          </LineContent>
+                        </Line>
+                      ))}
+                    </Pre>
+                  )}
+                </Highlight>
               </div>
             </div>
             <p>
@@ -62,12 +76,6 @@ const SinglePost = (props) => {
               doesn’t count!) pattern in my writing of class modules: whenever I
               need a class,
             </p>
-            <div>
-              <p>{post}</p>
-              <div>
-                <img className="w-75 h-50" src={img} alt="" />
-              </div>
-            </div>
           </div>
           <div>
             <Link to={`/service/${_id}`}>

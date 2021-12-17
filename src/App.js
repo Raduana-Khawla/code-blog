@@ -13,6 +13,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ShowsPost from "./Pages/ShowsPost/ShowsPost";
+import CodeEditor from "./Componrnts/CodeEditor/CodeEditor";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/codeEditor">
+              <CodeEditor></CodeEditor>
             </Route>
             <Route path="/allPosts">
               <AllPosts></AllPosts>

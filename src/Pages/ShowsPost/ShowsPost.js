@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CodeEditor from "../../Componrnts/CodeEditor/CodeEditor";
 import "./ShowsPost.css";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
-import docco from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
+// import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+// import js from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
+// import docco from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
 
 const ShowsPost = () => {
   const [showDetail, setShowDetail] = useState({});
@@ -19,17 +20,17 @@ const ShowsPost = () => {
       .catch((err) => console.log(err));
   }, [singlePostId]);
 
-  SyntaxHighlighter.registerLanguage("javascript", js);
-  const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-  import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-  const Component = () => {
-    const codeString = '(num) => num + 1';
-    return (
-      <SyntaxHighlighter language="javascript" style={dark}>
-        {codeString}
-      </SyntaxHighlighter>
-    );
-  };`;
+  // SyntaxHighlighter.registerLanguage("javascript", js);
+  // const codeString = `import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+  // import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+  // const Component = () => {
+  //   const codeString = '(num) => num + 1';
+  //   return (
+  //     <SyntaxHighlighter language="javascript" style={dark}>
+  //       {codeString}
+  //     </SyntaxHighlighter>
+  //   );
+  // };`;
 
   return (
     <>
@@ -52,17 +53,8 @@ const ShowsPost = () => {
                   voluptates. Ut, dolores?
                 </p>
                 <img className="w-75 h-50" src={showDetail?.img} alt="" />
-                <div className="box p-3 body">
-                  {/* <pre>
-                      <code className="language-javascript">{`${showDetail?.post}`}</code>
-                    </pre> */}
-                  <SyntaxHighlighter
-                    language="javascript"
-                    style={docco}
-                    className="p-5 line-numbers bg-secondary"
-                  >
-                    {codeString}
-                  </SyntaxHighlighter>
+                <div>
+                  <CodeEditor></CodeEditor>
                 </div>
                 <p>
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
