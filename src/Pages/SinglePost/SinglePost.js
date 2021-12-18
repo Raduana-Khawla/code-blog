@@ -15,7 +15,7 @@ const SinglePost = (props) => {
   const { name, post, date, img, _id } = props?.post;
   // console.log(props.post);
 
-  const codeString = `${post}`;
+  const codeString = `${post}`.trim();
 
   return (
     <section>
@@ -30,12 +30,6 @@ const SinglePost = (props) => {
             <h6 className="text-dark">Code-Blog</h6>
             <h6>2 Comments</h6>
             <br />
-            {/* <div className="mt-5">
-              <Comments
-                commentsUrl="http://localhost:3004/comments"
-                currentUserId="1"
-              />
-            </div> */}
           </div>
           <div className="col-md-9 col-sm-9">
             <div>

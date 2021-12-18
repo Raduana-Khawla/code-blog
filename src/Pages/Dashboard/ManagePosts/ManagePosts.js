@@ -14,7 +14,8 @@ const ManagePosts = () => {
     setStatus(e.target.value);
   };
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+    console.log(id);
+    fetch(`http://localhost:5000/statusUpdate/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ status }),
@@ -114,7 +115,7 @@ const ManagePosts = () => {
               </button>
 
               <button
-                onClick={() => handleUpdate(pd._id)}
+                onClick={() => handleUpdate(pd?._id)}
                 className="btn bg-success p-2"
               >
                 Update
