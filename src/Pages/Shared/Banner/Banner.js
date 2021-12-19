@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Typical from "react-typical";
 import axios from "axios";
 import "./Banner.css";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [posts, setPosts] = useState([]);
@@ -136,18 +137,37 @@ const Banner = () => {
           </div>
         </div>
         <div className="col-md-5 col-sm-5">
-          <div className="search-container">
-            <input
-              type="text"
-              onChange={(e) => setSearchValue(e.target.value)}
-              value={searchValue}
-              placeholder="Search Post"
-            />
-            <button onClick={handleSearchBtn}>Search</button>
-          </div>
           <div>
-            {searchResult.map((item) => (
-              <h6 className="text-dark">{item.date}</h6>
+            <div className="search-container">
+              <input
+                type="text"
+                onChange={(e) => setSearchValue(e.target.value)}
+                value={searchValue}
+                placeholder="Search Post"
+              />
+              <button onClick={handleSearchBtn}>Search</button>
+            </div>
+            <div>
+              {searchResult.map((item) => (
+                <h6 className="text-dark">
+                  <Link to={`/services/${item._id}`}>{item.date}</Link>
+                </h6>
+              ))}
+            </div>
+          </div>
+          <br />
+          <br />
+          <div className="mt-5">
+            <h2>Archives</h2>
+            <br />
+            <h4>Total Posts{posts.length}</h4>
+            <br />
+            {posts?.map((pd, index) => (
+              <h6>
+                <Link to={`/services/${pd._id}`}>
+                  {index}){pd?.date}..............{pd.length}
+                </Link>
+              </h6>
             ))}
           </div>
         </div>

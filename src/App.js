@@ -14,6 +14,7 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ShowsPost from "./Pages/ShowsPost/ShowsPost";
 import CodeEditor from "./Componrnts/CodeEditor/CodeEditor";
+import FileDownloader from "./Pages/DownloadFiles/FileDownloader/FileDownloader";
 
 function App() {
   return (
@@ -37,11 +38,17 @@ function App() {
             <Route path="/service/:singlePostId">
               <ShowsPost></ShowsPost>
             </Route>
+            <Route path="/services/:singlePostId">
+              <ShowsPost></ShowsPost>
+            </Route>
             <Route path="/contact">
               <ContactUs></ContactUs>
             </Route>
             <Route path="/attributions">
               <Attributions></Attributions>
+            </Route>
+            <Route path="/fileDownloader">
+              <FileDownloader></FileDownloader>
             </Route>
             <Route path="/login">
               <Login></Login>

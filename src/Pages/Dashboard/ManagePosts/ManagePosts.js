@@ -14,7 +14,7 @@ const ManagePosts = () => {
     setStatus(e.target.value);
   };
   const handleUpdate = (id) => {
-    console.log(id);
+    // console.log(id);
     fetch(`http://localhost:5000/statusUpdate/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -23,7 +23,7 @@ const ManagePosts = () => {
       .then((res) => res.json())
       .then((result) => {
         alert("status update Successfully!");
-        console.log(result);
+        // console.log(result);
       });
   };
   useEffect(() => {

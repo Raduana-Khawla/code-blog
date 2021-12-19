@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import "./Dashboard.css";
 import MakeAdmin from "../../Dashboard/MakeAdmin/MakeAdmin";

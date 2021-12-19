@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./SinglePost.css";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import {
@@ -9,13 +8,31 @@ import {
   LineNo,
   Pre,
 } from "../../Componrnts/CodeEditor/Style/StyledComponent";
-import CodeEditor from "../../Componrnts/CodeEditor/CodeEditor";
 
 const SinglePost = (props) => {
   const { name, post, date, img, _id } = props?.post;
-  // console.log(props.post);
 
-  const codeString = `${post}`.trim();
+  // const codeString = `${post}`;
+  const codeString = `import React from 'react';
+  import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';import Home from './pages/Home';
+  import About from './pages/About';
+  import Blog from './pages/Blog';
+  import Contact from './pages/Contact';
+  import Navigation from './component/Navigation';
+  const App = () => {
+    return (
+        <Router>
+          <Navigation/> // here implement your Navbar component like this
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/blog' component={Blog} />
+            <Route exact path='/contact' component={Contact} />
+          </Switch>
+        </Router>
+    );
+  };
+  export default App;`.trim();
 
   return (
     <section>
@@ -32,12 +49,21 @@ const SinglePost = (props) => {
             <br />
           </div>
           <div className="col-md-9 col-sm-9">
+            <p>
+              If you’ve been reading this blog for some time, you’ve probably
+              noticed this rather consistent (VBA code written before 2015
+              doesn’t count!) pattern in my writing of class modules: whenever I
+              need a class,
+            </p>
             <div>
               <img className="w-75 h-50" src={img} alt="" />
             </div>
-            <div>
-              <CodeEditor></CodeEditor>
-            </div>
+            <p>
+              If you’ve been reading this blog for some time, you’ve probably
+              noticed this rather consistent (VBA code written before 2015
+              doesn’t count!) pattern in my writing of class modules: whenever I
+              need a class,
+            </p>
             <div>
               <div>
                 <Highlight
@@ -72,12 +98,6 @@ const SinglePost = (props) => {
                 </Highlight>
               </div>
             </div>
-            <p>
-              If you’ve been reading this blog for some time, you’ve probably
-              noticed this rather consistent (VBA code written before 2015
-              doesn’t count!) pattern in my writing of class modules: whenever I
-              need a class,
-            </p>
           </div>
           <div>
             <Link to={`/service/${_id}`}>

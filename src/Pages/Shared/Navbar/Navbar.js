@@ -37,13 +37,18 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/codeEditor">
+                <Link className="nav-link" to="/allPosts">
                   <span>Posts</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/attributions">
                   <span>Attributions</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/fileDownloader">
+                  <span>File Download</span>
                 </Link>
               </li>
               <li className="nav-item">

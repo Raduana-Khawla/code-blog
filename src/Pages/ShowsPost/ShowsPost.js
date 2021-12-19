@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CodeEditor from "../../Componrnts/CodeEditor/CodeEditor";
-import "./ShowsPost.css";
+import Comments from "../Dashboard/Comment/Comments/Comments";
 
 const ShowsPost = (props) => {
   const [showDetail, setShowDetail] = useState({});
@@ -19,10 +19,14 @@ const ShowsPost = (props) => {
 
   return (
     <>
-      <div className="bg my-3 p-2">
+      <div className="my-3 p-2">
         <div className="details-container my-3">
-          <div className="row">
-            <div className="col-md-7 col-sm-7 my-5">
+          <div className="row my-5">
+            <div className="col-md-5 col-sm-5">
+              <h2>Comments</h2>
+              <Comments></Comments>
+            </div>
+            <div className="col-md-7 col-sm-7">
               <div className="property1 rounded w-100 h-75">
                 <h3 className="text-dark ms-auto fs-5 fw-bold">
                   {showDetail?.name}
@@ -31,17 +35,17 @@ const ShowsPost = (props) => {
                   Posted on{showDetail?.date} by Code-Blog
                 </h1>
                 <hr />
-                <p>
+                <p className="text-dark">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
                   iure ad culpa magni voluptatum modi deleniti vel assumenda a
                   amet quae vero, provident quidem error voluptas illo
                   voluptates. Ut, dolores?
                 </p>
                 <img className="w-75 h-50" src={showDetail?.img} alt="" />
-                <div>
+                <div className="mb-5">
                   <CodeEditor></CodeEditor>
                 </div>
-                <p>
+                <p className="text-dark">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Facere mollitia totam error perferendis culpa, nostrum laborum
                   voluptas praesentium obcaecati fugit deserunt odit, porro

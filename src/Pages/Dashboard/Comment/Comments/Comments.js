@@ -1,71 +1,68 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
-import "./UserPost.css";
+import "./Comments.css";
 
-const UserPost = () => {
+const Comments = () => {
   const { register, handleSubmit } = useForm();
   const { user } = useAuth();
+  console.log(user);
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addPost", {
+    fetch("http://localhost:5000/addcomment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Post Done!");
+        alert("Review Done!");
       });
 
     console.log(data);
   };
-
   return (
-    <div className="bg my-5">
-      <h1>User Post</h1>
+    <div className="bg p-3">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input-field"
+          name="img"
+          placeholder="image upload"
+          value={user?.photoURL}
+          {...register("img", { required: true })}
+        />
+        <br />
+        <input
+          className="input-field"
+          name="email"
+          value={user?.email}
+          type="email"
+          {...register("email", { required: true })}
+        />
+        <br />
+        <input
+          className="input-field"
           name="name"
-          placeholder="enter head-line"
+          value={user?.displayName}
           type="name"
           {...register("name", { required: true })}
         />
         <br />
-        <br />
-        <input
+
+        <textarea
           className="input-field"
-          name="img"
-          placeholder="Put Your image"
-          {...register("img", { required: true })}
+          name="comments"
+          placeholder="Leave your Comment here"
+          {...register("comments", { required: true })}
         />
-        <br />
-        <br />
-        <input
-          className="input-field"
-          name="post"
-          placeholder="Posts"
-          {...register("post", { required: true })}
-        />
-        <br />
-        <br />
-        <input
-          className="input-field"
-          name="date"
-          placeholder="Date"
-          {...register("date", { required: true })}
-        />
-        <br />
         <br />
         <input
           className="submit-btn btn btn-danger mt-3 px-5"
           type="submit"
-          value="post"
+          value="Submit"
         />
       </form>
     </div>
   );
 };
-
-export default UserPost;
+export default Comments;
