@@ -42,7 +42,15 @@ const UserPost = () => {
         />
         <br />
         <br />
-        <input
+        <textarea
+          className="input-field"
+          name="paragraph"
+          placeholder="Write......"
+          {...register("paragraph", { required: true })}
+        />
+        <br />
+        <br />
+        <textarea
           className="input-field"
           name="post"
           placeholder="Posts"

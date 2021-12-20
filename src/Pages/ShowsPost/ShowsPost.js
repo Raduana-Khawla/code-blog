@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CodeEditor from "../../Componrnts/CodeEditor/CodeEditor";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
+import {
+  Line,
+  LineContent,
+  LineNo,
+  Pre,
+} from "../../Componrnts/CodeEditor/Style/StyledComponent";
 import Comments from "../Dashboard/Comment/Comments/Comments";
+import ShowComments from "../Dashboard/Comment/ShowComments/ShowComments";
+import ReplyShow from "../Dashboard/Comment/ReplyShow/ReplyShow";
 
 const ShowsPost = (props) => {
   const [showDetail, setShowDetail] = useState({});
   const { singlePostId } = useParams();
+
+  const codeString12 = `${showDetail?.post}`.trim();
 
   useEffect(() => {
     fetch(`http://localhost:5000/singleService/${singlePostId}`)
@@ -23,8 +34,17 @@ const ShowsPost = (props) => {
         <div className="details-container my-3">
           <div className="row my-5">
             <div className="col-md-5 col-sm-5">
-              <h2>Comments</h2>
-              <Comments></Comments>
+              <div>
+                <ShowComments></ShowComments>
+              </div>
+              <div className="ms-5">
+                {" "}
+                <ReplyShow></ReplyShow>
+              </div>
+              <div className="mt-5">
+                <h2>Comments</h2>
+                <Comments></Comments>
+              </div>
             </div>
             <div className="col-md-7 col-sm-7">
               <div className="property1 rounded w-100 h-75">
@@ -35,22 +55,40 @@ const ShowsPost = (props) => {
                   Posted on{showDetail?.date} by Code-Blog
                 </h1>
                 <hr />
-                <p className="text-dark">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                  iure ad culpa magni voluptatum modi deleniti vel assumenda a
-                  amet quae vero, provident quidem error voluptas illo
-                  voluptates. Ut, dolores?
-                </p>
+                <p className="text-dark">{showDetail?.paragraph}</p>
                 <img className="w-75 h-50" src={showDetail?.img} alt="" />
-                <div className="mb-5">
-                  <CodeEditor></CodeEditor>
+                <div className="my-3">
+                  <Highlight
+                    {...defaultProps}
+                    theme={theme}
+                    code={codeString12}
+                    language="js"
+                  >
+                    {({
+                      className,
+                      style,
+                      tokens,
+                      getLineProps,
+                      getTokenProps,
+                    }) => (
+                      <Pre className={className} style={style}>
+                        {tokens.map((line, i) => (
+                          <Line key={i} {...getLineProps({ line, key: i })}>
+                            <LineNo>{i + 1}</LineNo>
+                            <LineContent>
+                              {line.map((token, key) => (
+                                <span
+                                  key={key}
+                                  {...getTokenProps({ token, key })}
+                                />
+                              ))}
+                            </LineContent>
+                          </Line>
+                        ))}
+                      </Pre>
+                    )}
+                  </Highlight>
                 </div>
-                <p className="text-dark">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Facere mollitia totam error perferendis culpa, nostrum laborum
-                  voluptas praesentium obcaecati fugit deserunt odit, porro
-                  doloribus cum eos, vitae quae veniam! Reprehenderit.
-                </p>
               </div>
             </div>
           </div>

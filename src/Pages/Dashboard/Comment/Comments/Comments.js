@@ -16,7 +16,7 @@ const Comments = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Review Done!");
+        alert("Comment Done!");
       });
 
     console.log(data);
@@ -54,6 +54,13 @@ const Comments = () => {
           name="comments"
           placeholder="Leave your Comment here"
           {...register("comments", { required: true })}
+        />
+        <br />
+        <input
+          className="input-field"
+          name="rating"
+          placeholder="give Rating on this post"
+          {...register("rating", { required: true })}
         />
         <br />
         <input

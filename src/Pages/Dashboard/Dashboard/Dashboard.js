@@ -6,6 +6,7 @@ import UserPost from "../UserPost/UserPost/UserPost";
 import AllPosts from "../../AllPosts/AllPosts";
 import useAuth from "../../../hooks/useAuth";
 import ManagePosts from "../ManagePosts/ManagePosts";
+import AdminReply from "../AdminReply/AdminReply";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -35,6 +36,9 @@ const Dashbaord = () => {
                 <Link to={`${url}/makeAdmin`}>
                   <li className="dashboard-menu">Make Admin</li>
                 </Link>
+                <Link to={`${url}/adminReply`}>
+                  <li className="dashboard-menu">Admin reply</li>
+                </Link>
               </div>
               {/* )} */}
             </div>
@@ -53,6 +57,9 @@ const Dashbaord = () => {
               </Route>
               <Route exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
+              </Route>
+              <Route exact path={`${path}/adminReply`}>
+                <AdminReply></AdminReply>
               </Route>
             </Switch>
           </div>
