@@ -13,7 +13,15 @@ import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+  const {
+    user,
+    loginUser,
+    signInWithGoogle,
+    FacebookSign,
+    isLoading,
+    signInWithGithub,
+    authError,
+  } = useAuth();
 
   const location = useLocation();
   const history = useHistory();
@@ -32,6 +40,12 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     signInWithGoogle(location, history);
+  };
+  const handlefacebook = () => {
+    FacebookSign(location, history);
+  };
+  const handleGithub = () => {
+    signInWithGithub(location, history);
   };
   return (
     <Container>
@@ -78,6 +92,16 @@ const Login = () => {
           <p>------------------------</p>
           <Button onClick={handleGoogleSignIn} variant="contained">
             Google Sign In
+          </Button>
+          <br />
+          <br />
+          <Button onClick={handlefacebook} variant="contained">
+            <i class="fab fa-facebook"></i>&nbsp;Facebook Sign In
+          </Button>
+          <br />
+          <br />
+          <Button onClick={handleGithub} variant="contained">
+            <i class=""></i>&nbsp;Github Sign In
           </Button>
         </Grid>
         <Grid item sx={{ my: 2 }} xs={12} md={6}>

@@ -5,9 +5,10 @@ import "./UserPost.css";
 
 const UserPost = () => {
   const { register, handleSubmit } = useForm();
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
 
-  const onSubmit = (data) => {
+  const onSubmit = (value) => {
+    const data = { ...value, userId: admin._id, comments: [{ replay: [] }] };
     fetch("http://localhost:5000/addPost", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -17,8 +18,6 @@ const UserPost = () => {
       .then((result) => {
         alert("Post Done!");
       });
-
-    console.log(data);
   };
 
   return (

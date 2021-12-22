@@ -10,6 +10,8 @@ import {
   getIdToken,
   updateProfile,
   signOut,
+  FacebookAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
 
 // initialize firebase app
@@ -24,6 +26,8 @@ const useFirebase = () => {
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
+  const provider = new FacebookAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const registerUser = (email, password, name, history) => {
     setIsLoading(true);
@@ -79,7 +83,42 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
-
+  const FacebookSign = (location, history) => {
+    setIsLoading(true);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        saveUser(user.email, user.displayName, "PUT");
+        setAuthError("");
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+        // This gives you a Facebook Access Token. You can use it to access the Facebook
+        // console.log(user);
+      })
+      .catch((error) => {
+        setAuthError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+  const signInWithGithub = (location, history) => {
+    setIsLoading(true);
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        saveUser(user.email, user.displayName, "PUT");
+        setAuthError("");
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+        // This gives you a Facebook Access Token. You can use it to access the Facebook
+        // console.log(user);
+      })
+      .catch((error) => {
+        setAuthError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
   // observer user state
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -97,9 +136,15 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
+    if (user.email !== undefined) {
+      fetch(`http://localhost:5000/user/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => setAdmin(data))
+        .catch((err) => console.log("User Error", err));
+      console.log("fetching user");
+    } else {
+      console.log(user.email, "hello ");
+    }
   }, [user.email]);
 
   const logOut = () => {
@@ -133,7 +178,9 @@ const useFirebase = () => {
     registerUser,
     loginUser,
     signInWithGoogle,
+    FacebookSign,
     logOut,
+    signInWithGithub,
   };
 };
 

@@ -9,8 +9,8 @@ const Comments = () => {
   console.log(user);
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addcomment", {
-      method: "POST",
+    fetch(`http://localhost:5000/addcomment/61c08fe44c640097c388f51d`, {
+      method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })

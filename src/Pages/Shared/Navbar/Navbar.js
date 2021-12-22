@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import UseFirebase from "../../../hooks/UseFirebase";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [posts, setPosts] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
   const { user, logOut } = UseFirebase();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/allPosts`)
+      .then(function (response) {
+        // handle success
+        setPosts(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
+
+  const handleSearchBtn = () => {
+    if (searchValue) {
+      const result = posts.filter((post) =>
+        post.date.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setSearchResult(result);
+      setSearchValue("");
+    } else {
+      setSearchValue("");
+    }
+  };
   return (
     <div>
       <nav className="navbar design1 navbar-expand-lg navbar-light">
@@ -36,10 +64,23 @@ const Navbar = () => {
                   <span>Home</span>
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item d-flex">
+                <input
+                  type="text"
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  value={searchValue}
+                  placeholder="Search Post"
+                />
                 <Link className="nav-link" to="/allPosts">
-                  <span>Posts</span>
+                  <button onClick={handleSearchBtn}>Search</button>
                 </Link>
+              </li>
+              <li className="nav-item">
+                {searchResult.map((item) => (
+                  <Link to={`/services/${item._id}`}>
+                    <h6 className="text-light">{item.date}</h6>
+                  </Link>
+                ))}
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/attributions">

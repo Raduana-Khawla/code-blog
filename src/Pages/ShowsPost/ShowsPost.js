@@ -9,11 +9,11 @@ import {
   Pre,
 } from "../../Componrnts/CodeEditor/Style/StyledComponent";
 import Comments from "../Dashboard/Comment/Comments/Comments";
-import ShowComments from "../Dashboard/Comment/ShowComments/ShowComments";
+import ShowComment from "../Dashboard/Comment/ShowComment/ShowComment";
 import ReplyShow from "../Dashboard/Comment/ReplyShow/ReplyShow";
 
 const ShowsPost = (props) => {
-  const [showDetail, setShowDetail] = useState({});
+  const [showDetail, setShowDetail] = useState({ comments: [] });
   const { singlePostId } = useParams();
 
   const codeString12 = `${showDetail?.post}`.trim();
@@ -22,7 +22,7 @@ const ShowsPost = (props) => {
     fetch(`http://localhost:5000/singleService/${singlePostId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data.comments);
         setShowDetail(data);
       })
       .catch((err) => console.log(err));
@@ -35,7 +35,9 @@ const ShowsPost = (props) => {
           <div className="row my-5">
             <div className="col-md-5 col-sm-5">
               <div>
-                <ShowComments></ShowComments>
+                {showDetail?.comments?.map((comment) => (
+                  <ShowComment data={comment}></ShowComment>
+                ))}
               </div>
               <div className="ms-5">
                 {" "}
