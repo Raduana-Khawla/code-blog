@@ -6,11 +6,7 @@ import "./UserPost.css";
 
 const UserPost = () => {
   const editorRef = useRef(null);
-  // const log = () => {
-  //   if (editorRef.current) {
-  //     console.log(editorRef.current.getContent());
-  //   }
-  // };
+
   const { register, handleSubmit } = useForm();
   const { user, admin } = useAuth();
 
@@ -73,7 +69,7 @@ const UserPost = () => {
         init={{
           height: 500,
           plugins: [
-            "codesample advlist autolink lists link image charmap print preview anchor",
+            "codesample advlist autolink lists link image tinydrive charmap print preview anchor",
             "searchreplace visualblocks code fullscreen",
             "insertdatetime media table paste code help wordcount",
           ],
@@ -81,19 +77,22 @@ const UserPost = () => {
             plugins:
               "print preview tinydrive powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable",
           },
-          menu: {
-            tc: {
-              title: "Comments",
-              items: "addcomment showcomments deleteallconversations",
-            },
-          },
           menubar: "file edit view insert format tools table tc help",
-          menu: {
-            insert: { title: "Insert", items: "insertfile" },
-          },
-
+          codesample_languages: [
+            { text: "HTML/XML", value: "markup" },
+            { text: "JavaScript", value: "javascript" },
+            { text: "CSS", value: "css" },
+            { text: "PHP", value: "php" },
+            { text: "Ruby", value: "ruby" },
+            { text: "Python", value: "python" },
+            { text: "Java", value: "java" },
+            { text: "C", value: "c" },
+            { text: "C#", value: "csharp" },
+            { text: "C++", value: "cpp" },
+            { text: "VBA/VB6", value: "VB.Net" },
+          ],
           toolbar:
-            "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
+            "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
           autosave_ask_before_unload: true,
           codesample_global_prismjs: true,
           insert_button_items: "insertfile",

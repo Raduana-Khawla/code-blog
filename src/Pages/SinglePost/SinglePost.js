@@ -9,7 +9,7 @@ const SinglePost = (props) => {
     <section>
       <div className="container my-5">
         <div className="row">
-          <div className="col-md-3 col-sm-3">
+          <div className="col-md-2 col-sm-2">
             <h3 className="text-dark fs-5 fw-bold">Month: {date}</h3>
             <br />
             <br />
@@ -19,7 +19,7 @@ const SinglePost = (props) => {
             <h6>2 Comments</h6>
             <br />
           </div>
-          <div className="col-md-9 col-sm-9">
+          <div className="col-md-10 col-sm-10">
             {" "}
             {ReactHtmlParser(excelBlog)}{" "}
           </div>
