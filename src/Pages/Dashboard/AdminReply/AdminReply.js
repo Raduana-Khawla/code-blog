@@ -7,7 +7,7 @@ const AdminReply = () => {
   const { user } = useAuth();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addReply", {
+    fetch("https://radiant-stream-89624.herokuapp.com/addReply", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

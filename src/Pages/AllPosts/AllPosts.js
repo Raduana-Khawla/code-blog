@@ -5,7 +5,7 @@ const AllPosts = () => {
   const [posts, setPosts] = useState([]);
   //loading data
   useEffect(() => {
-    fetch("http://localhost:5000/allPosts")
+    fetch("https://radiant-stream-89624.herokuapp.com/allPosts")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);

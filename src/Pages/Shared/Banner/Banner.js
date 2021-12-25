@@ -11,7 +11,7 @@ const Banner = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/allPosts`)
+      .get(`https://radiant-stream-89624.herokuapp.com/allPosts`)
       .then(function (response) {
         // handle success
         setPosts(response.data);

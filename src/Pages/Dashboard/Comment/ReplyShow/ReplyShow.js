@@ -6,7 +6,7 @@ const ReplyShow = () => {
   //loading data
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/getReply`)
+      .get(`https://radiant-stream-89624.herokuapp.com/getReply`)
       .then(function (response) {
         setShowReply(response.data);
       })

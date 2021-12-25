@@ -8,7 +8,9 @@ const ShowsPost = (props) => {
   const { singlePostId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleService/${singlePostId}`)
+    fetch(
+      `https://radiant-stream-89624.herokuapp.com/singleService/${singlePostId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.comments);

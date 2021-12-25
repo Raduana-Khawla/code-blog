@@ -14,7 +14,7 @@ const UserPost = () => {
     const data = { ...value, userId: admin._id, comments: [{ replay: [] }] };
     data.excelBlog = editorRef.current.getContent();
     console.log(data);
-    fetch("http://localhost:5000/addPost", {
+    fetch("https://radiant-stream-89624.herokuapp.com/addPost", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

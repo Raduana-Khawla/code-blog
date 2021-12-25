@@ -15,7 +15,7 @@ const ManagePosts = () => {
   };
   const handleUpdate = (id) => {
     // console.log(id);
-    fetch(`http://localhost:5000/statusUpdate/${id}`, {
+    fetch(`https://radiant-stream-89624.herokuapp.com/statusUpdate/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ status }),
@@ -27,7 +27,7 @@ const ManagePosts = () => {
       });
   };
   useEffect(() => {
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://radiant-stream-89624.herokuapp.com/allOrders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
@@ -40,11 +40,14 @@ const ManagePosts = () => {
 
   const onSubmit = (data) => {
     // console.log(data, orderId);
-    fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://radiant-stream-89624.herokuapp.com/statusUpdate/${orderId}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         alert("status update Successfully!");
@@ -53,7 +56,7 @@ const ManagePosts = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+    fetch(`https://radiant-stream-89624.herokuapp.com/deleteOrder/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

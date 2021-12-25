@@ -153,7 +153,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     if (user.email !== undefined) {
-      fetch(`http://localhost:5000/user/${user.email}`)
+      fetch(`https://radiant-stream-89624.herokuapp.com/user/${user.email}`)
         .then((res) => res.json())
         .then((data) => setAdmin(data))
         .catch((err) => console.log("User Error", err));
@@ -176,7 +176,7 @@ const useFirebase = () => {
   };
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://radiant-stream-89624.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
