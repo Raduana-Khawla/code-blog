@@ -75,8 +75,8 @@ const ManagePosts = () => {
             <th>#</th>
             <th>Post Date</th>
             <th>Post Title</th>
+            <th>Post Author</th>
             <th>Post description</th>
-            <th>Image Link</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -86,9 +86,9 @@ const ManagePosts = () => {
             <tr>
               <td>{index}</td>
               <td>{pd.date}</td>
-              <td>{pd.name}</td>
-              <td>{pd.post}</td>
-              <td>{pd.img}</td>
+              <td>{pd.Title}</td>
+              <td>{pd.Author}</td>
+              <td>{pd.excelBlog}</td>
               <td>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <select

@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [posts, setPosts] = useState([]);
-  // const [searchValue, setSearchValue] = useState("");
-  // const [searchResult, setSearchResult] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
   useEffect(() => {
     axios
@@ -22,17 +22,17 @@ const Banner = () => {
       });
   }, []);
 
-  // const handleSearchBtn = () => {
-  //   if (searchValue) {
-  //     const result = posts.filter((post) =>
-  //       post.date.toLowerCase().includes(searchValue.toLowerCase())
-  //     );
-  //     setSearchResult(result);
-  //     setSearchValue("");
-  //   } else {
-  //     setSearchValue("");
-  //   }
-  // };
+  const handleSearchBtn = () => {
+    if (searchValue) {
+      const result = posts.filter((post) =>
+        post.excelBlog.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setSearchResult(result);
+      setSearchValue("");
+    } else {
+      setSearchValue("");
+    }
+  };
 
   return (
     <section>
@@ -137,7 +137,7 @@ const Banner = () => {
           </div>
         </div>
         <div className="col-md-5 col-sm-5">
-          {/* <div>
+          <div>
             <div className="search-container">
               <input
                 type="text"
@@ -154,13 +154,13 @@ const Banner = () => {
                 </h6>
               ))}
             </div>
-          </div> */}
+          </div>
           <br />
           <br />
           <div className="mt-5">
             <h2>Archives</h2>
             <br />
-            <h4>Total Posts-{posts.length}</h4>
+            <h4>Total Posts{posts.length}</h4>
             <br />
             {posts?.map((pd, index) => (
               <h6>

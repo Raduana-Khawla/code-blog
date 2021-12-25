@@ -2,11 +2,11 @@
     background-color: gray;
     /* background-color: #1f5156; */
    }
-   span{
+   .spanTag{
        font-family: 'Poppins', sans-serif;
        color: white;
    }
-span:hover{
+.spanTag:hover{
        color: #ffc107;
        box-sizing: border-box;
        

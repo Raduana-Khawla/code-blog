@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
+import { Editor } from "@tinymce/tinymce-react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
 import "./UserPost.css";
 
 const UserPost = () => {
+  const editorRef = useRef(null);
+  // const log = () => {
+  //   if (editorRef.current) {
+  //     console.log(editorRef.current.getContent());
+  //   }
+  // };
   const { register, handleSubmit } = useForm();
   const { user, admin } = useAuth();
 
   const onSubmit = (value) => {
     const data = { ...value, userId: admin._id, comments: [{ replay: [] }] };
+    data.excelBlog = editorRef.current.getContent();
+    console.log(data);
     fetch("http://localhost:5000/addPost", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -26,34 +35,18 @@ const UserPost = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input-field"
-          name="name"
+          name="title"
           placeholder="enter head-line"
           type="name"
-          {...register("name", { required: true })}
+          {...register("Title", { required: true })}
         />
         <br />
         <br />
         <input
           className="input-field"
-          name="img"
-          placeholder="Put Your image"
-          {...register("img", { required: true })}
-        />
-        <br />
-        <br />
-        <textarea
-          className="input-field"
-          name="paragraph"
-          placeholder="Write......"
-          {...register("paragraph", { required: true })}
-        />
-        <br />
-        <br />
-        <textarea
-          className="input-field"
-          name="post"
-          placeholder="Posts"
-          {...register("post", { required: true })}
+          name="Author"
+          placeholder="Author name"
+          {...register("Author", { required: true })}
         />
         <br />
         <br />
@@ -65,12 +58,49 @@ const UserPost = () => {
         />
         <br />
         <br />
+        <br />
         <input
           className="submit-btn btn btn-danger mt-3 px-5"
           type="submit"
           value="post"
         />
       </form>
+      <br />
+      <Editor
+        apiKey="/3brobpodeqnay7svjrf7eqp15lebr1fseo6216cwt6h90sjl"
+        onInit={(evt, editor) => (editorRef.current = editor)}
+        initialValue="<p>This is the initial content of the editor.</p>"
+        init={{
+          height: 500,
+          plugins: [
+            "codesample advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table paste code help wordcount",
+          ],
+          mobile: {
+            plugins:
+              "print preview tinydrive powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable",
+          },
+          menu: {
+            tc: {
+              title: "Comments",
+              items: "addcomment showcomments deleteallconversations",
+            },
+          },
+          menubar: "file edit view insert format tools table tc help",
+          menu: {
+            insert: { title: "Insert", items: "insertfile" },
+          },
+
+          toolbar:
+            "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
+          autosave_ask_before_unload: true,
+          codesample_global_prismjs: true,
+          insert_button_items: "insertfile",
+          content_style:
+            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        }}
+      />
     </div>
   );
 };

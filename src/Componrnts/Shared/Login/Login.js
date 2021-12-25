@@ -90,19 +90,17 @@ const Login = () => {
             {authError && <Alert severity="error">{authError}</Alert>}
           </form>
           <p>------------------------</p>
-          <Button onClick={handleGoogleSignIn} variant="contained">
-            Google Sign In
-          </Button>
-          <br />
-          <br />
-          <Button onClick={handlefacebook} variant="contained">
-            <i class="fab fa-facebook"></i>&nbsp;Facebook Sign In
-          </Button>
-          <br />
-          <br />
-          <Button onClick={handleGithub} variant="contained">
-            <i class=""></i>&nbsp;Github Sign In
-          </Button>
+          <div className="d-flex justify-content-evenly">
+            <Button onClick={handleGoogleSignIn} variant="contained">
+              <i class="fab fa-google"></i>
+            </Button>
+            <Button onClick={handlefacebook} variant="contained">
+              <i class="fab fa-facebook"></i>
+            </Button>
+            <Button onClick={handleGithub} variant="contained">
+              <i class="fab fa-github"></i>
+            </Button>
+          </div>
         </Grid>
         <Grid item sx={{ my: 2 }} xs={12} md={6}>
           <img

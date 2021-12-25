@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import AllPosts from "./Pages/AllPosts/AllPosts";
 import ContactUs from "./Pages/Contact/Contact";
-import Attributions from "./Pages/Attributions/Attributions";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
 import PrivetRoute from "./Componrnts/Shared/PrivetRoute/PrivetRoute";
 import Login from "./Componrnts/Shared/Login/Login";
@@ -13,7 +12,6 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ShowsPost from "./Pages/ShowsPost/ShowsPost";
-import CodeEditor from "./Componrnts/CodeEditor/CodeEditor";
 import FileDownloader from "./Pages/DownloadFiles/FileDownloader/FileDownloader";
 
 function App() {
@@ -29,9 +27,6 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/codeEditor">
-              <CodeEditor></CodeEditor>
-            </Route>
             <Route path="/allPosts">
               <AllPosts></AllPosts>
             </Route>
@@ -43,9 +38,6 @@ function App() {
             </Route>
             <Route path="/contact">
               <ContactUs></ContactUs>
-            </Route>
-            <Route path="/attributions">
-              <Attributions></Attributions>
             </Route>
             <Route path="/fileDownloader">
               <FileDownloader></FileDownloader>
