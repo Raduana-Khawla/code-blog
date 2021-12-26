@@ -1,9 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyB7XcnleA2ndQf3ISKD8iaWfOgW8mGj25k",
-  authDomain: "code-blog-1a084.firebaseapp.com",
-  projectId: "code-blog-1a084",
-  storageBucket: "code-blog-1a084.appspot.com",
-  messagingSenderId: "213051194929",
-  appId: "1:213051194929:web:94c327d4216e245104df10",
+  apiKey: "AIzaSyAI1g2xPdQ0PQaTMyJN83iNDW41s_vkhK0",
+  authDomain: "excel-blogging.firebaseapp.com",
+  projectId: "excel-blogging",
+  storageBucket: "excel-blogging.appspot.com",
+  messagingSenderId: "712632879336",
+  appId: "1:712632879336:web:774ab3864fa3153345e15d",
 };
+
 export default firebaseConfig;
