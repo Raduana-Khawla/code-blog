@@ -128,18 +128,12 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribed;
-  }, [auth]);
+  }, []);
 
   useEffect(() => {
-    if (user.email !== undefined) {
-      fetch(`https://radiant-stream-89624.herokuapp.com/user/${user.email}`)
-        .then((res) => res.json())
-        .then((data) => setAdmin(data))
-        .catch((err) => console.log("User Error", err));
-      console.log("fetching user");
-    } else {
-      console.log(user.email, "hello ");
-    }
+    fetch(`https://radiant-stream-89624.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
   const logOut = () => {
