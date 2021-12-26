@@ -4,7 +4,6 @@ import Home from "./Pages/Home/Home";
 import AllPosts from "./Pages/AllPosts/AllPosts";
 import ContactUs from "./Pages/Contact/Contact";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
-import PrivetRoute from "./Componrnts/Shared/PrivetRoute/PrivetRoute";
 import Login from "./Componrnts/Shared/Login/Login";
 import Register from "./Componrnts/Register/Register";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
@@ -48,9 +47,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivetRoute path="/dashboard">
+            <Route path="/dashboard">
               <Dashboard></Dashboard>
-            </PrivetRoute>
+            </Route>
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>
