@@ -90,7 +90,7 @@ const UserPost = () => {
             { text: "C", value: "c" },
             { text: "C#", value: "csharp" },
             { text: "C++", value: "cpp" },
-            { text: "VBA/VB6", value: "VB.Net" },
+            { text: "VBA/VB6", value: "vbnet" },
           ],
           toolbar:
             "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
