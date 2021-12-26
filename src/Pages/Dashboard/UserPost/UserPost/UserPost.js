@@ -3,6 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
 import "./UserPost.css";
+// import { Line, LineContent, LineNo, Pre } from "./Style/StyledComponent";
 
 const UserPost = () => {
   const editorRef = useRef(null);
