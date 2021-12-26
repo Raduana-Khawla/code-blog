@@ -4,13 +4,11 @@ import "./Dashboard.css";
 import MakeAdmin from "../../Dashboard/MakeAdmin/MakeAdmin";
 import UserPost from "../UserPost/UserPost/UserPost";
 import AllPosts from "../../AllPosts/AllPosts";
-import useAuth from "../../../hooks/useAuth";
 import ManagePosts from "../ManagePosts/ManagePosts";
 import AdminReply from "../AdminReply/AdminReply";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
 
   return (
     <div>

@@ -1,10 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../../../hooks/useAuth";
 
 const AdminReply = () => {
   const { register, handleSubmit } = useForm();
-  const { user } = useAuth();
 
   const onSubmit = (data) => {
     fetch("https://radiant-stream-89624.herokuapp.com/addReply", {

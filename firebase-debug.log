@@ -1,0 +1,28 @@
+[debug] [2021-12-26T06:36:24.297Z] ----------------------------------------------------------------------
+[debug] [2021-12-26T06:36:24.301Z] Command:       E:\Program Files\nodejs\node.exe C:\Users\Khawla\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-12-26T06:36:24.301Z] CLI Version:   10.0.1
+[debug] [2021-12-26T06:36:24.301Z] Platform:      win32
+[debug] [2021-12-26T06:36:24.302Z] Node Version:  v14.17.1
+[debug] [2021-12-26T06:36:24.468Z] Time:          Sun Dec 26 2021 12:36:24 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-12-26T06:36:24.469Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-12-26T06:36:24.582Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-12-26T06:36:24.582Z] > authorizing via signed-in user (raduanakhawla468@gmail.com)
+[debug] [2021-12-26T06:36:24.582Z] [iam] checking project code-blog-d0db7 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-12-26T06:36:24.587Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/code-blog-d0db7:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-12-26T06:36:26.901Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 26 Dec 2021 06:36:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1019","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-26T06:36:26.904Z] > refreshing access token with scopes: []
+[debug] [2021-12-26T06:36:26.905Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-26T06:36:27.353Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sun, 26 Dec 2021 06:36:27 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-26T06:36:27.420Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/code-blog-d0db7 [none]
+[debug] [2021-12-26T06:36:28.014Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/code-blog-d0db7 200
+[debug] [2021-12-26T06:36:28.014Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/code-blog-d0db7 {"projectId":"code-blog-d0db7","projectNumber":"531367965640","displayName":"code-blog","name":"projects/code-blog-d0db7","resources":{"hostingSite":"code-blog-d0db7"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'code-blog-d0db7'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-12-26T06:36:28.022Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-12-26T06:36:28.022Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>

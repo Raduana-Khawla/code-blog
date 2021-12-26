@@ -9,7 +9,7 @@ const UserPost = () => {
   const editorRef = useRef(null);
 
   const { register, handleSubmit } = useForm();
-  const { user, admin } = useAuth();
+  const { admin } = useAuth();
 
   const onSubmit = (value) => {
     const data = { ...value, userId: admin._id, comments: [{ replay: [] }] };

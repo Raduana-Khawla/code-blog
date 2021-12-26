@@ -88,22 +88,11 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
-        // The signed-in user info.
-        // const user = result.user;
-        // The signed-in user info.
-        const { displayName, photoURL, email } = result.user;
-        const loggedInUser = {
-          name: displayName,
-          email: email,
-          photo: photoURL,
-        };
-        setUser(loggedInUser);
-        // saveUser(user.email, user.displayName, "PUT");
-        // setAuthError("");
+        const user = result.user;
+        saveUser(user.email, user.displayName, "PUT");
+        setAuthError("");
         const destination = location?.state?.from || "/";
         history.replace(destination);
-        // This gives you a Facebook Access Token. You can use it to access the Facebook
-        // console.log(user);
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -114,21 +103,11 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithPopup(auth, githubProvider)
       .then((result) => {
-        // const user = result.user;
-        // The signed-in user info.
-        const { displayName, photoURL, email } = result.user;
-        const loggedInUser = {
-          name: displayName,
-          email: email,
-          photo: photoURL,
-        };
-        setUser(loggedInUser);
-        // saveUser(user.email, user.displayName, "PUT");
-        // setAuthError("");
+        const user = result.user;
+        saveUser(user.email, user.displayName, "PUT");
+        setAuthError("");
         const destination = location?.state?.from || "/";
         history.replace(destination);
-        // This gives you a Facebook Access Token. You can use it to access the Facebook
-        // console.log(user);
       })
       .catch((error) => {
         setAuthError(error.message);

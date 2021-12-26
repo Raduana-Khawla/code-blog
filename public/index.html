@@ -40,6 +40,39 @@
   </script>
   <!-- <script src="https://cdn.tiny.cloud/1/3brobpodeqnay7svjrf7eqp15lebr1fseo6216cwt6h90sjl/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script> -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '{your-app-id}',
+        cookie: true,
+        xfbml: true,
+        version: '{api-version}'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- {
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+} -->
 
   <script src="prism.js" data-manual></script>
   <script src="tinymce.js"></script>
