@@ -12,6 +12,7 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ShowsPost from "./Pages/ShowsPost/ShowsPost";
 import FileDownloader from "./Pages/DownloadFiles/FileDownloader/FileDownloader";
+import AdminRoute from "./Componrnts/Shared/Login/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -47,9 +48,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/dashboard">
+            <AdminRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </AdminRoute>
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>

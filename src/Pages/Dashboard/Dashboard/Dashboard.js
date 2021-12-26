@@ -6,7 +6,6 @@ import UserPost from "../UserPost/UserPost/UserPost";
 import AllPosts from "../../AllPosts/AllPosts";
 import ManagePosts from "../ManagePosts/ManagePosts";
 import AdminReply from "../AdminReply/AdminReply";
-import AdminRoute from "../../../Componrnts/Shared/Login/AdminRoute/AdminRoute";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -54,9 +53,9 @@ const Dashbaord = () => {
               <Route exact path={`${path}/managePosts`}>
                 <ManagePosts></ManagePosts>
               </Route>
-              <AdminRoute exact path={`${path}/makeAdmin`}>
+              <Route exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
-              </AdminRoute>
+              </Route>
               <Route exact path={`${path}/adminReply`}>
                 <AdminReply></AdminReply>
               </Route>
