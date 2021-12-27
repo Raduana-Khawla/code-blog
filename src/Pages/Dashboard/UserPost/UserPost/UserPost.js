@@ -9,7 +9,7 @@ const UserPost = () => {
   const editorRef = useRef(null);
 
   const { register, handleSubmit } = useForm();
-  const { admin } = useAuth();
+  const { token, admin } = useAuth();
 
   const onSubmit = (value) => {
     const data = { ...value, userId: admin._id, comments: [{ replay: [] }] };
@@ -17,7 +17,10 @@ const UserPost = () => {
     console.log(data);
     fetch("https://radiant-stream-89624.herokuapp.com/addPost", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        authorization: `Bearer ${token}`,
+        "content-type": "application/json",
+      },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
@@ -76,7 +79,7 @@ const UserPost = () => {
           ],
           mobile: {
             plugins:
-              "print preview tinydrive powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable",
+              "print preview tinydrive powerpaste casechange importcss  searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image media link tinydrive code imagetools mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable",
           },
           menubar: "file edit view insert format tools table tc help",
           codesample_languages: [
@@ -93,9 +96,10 @@ const UserPost = () => {
             { text: "VBA/VB6", value: "vbnet" },
           ],
           toolbar:
-            "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
+            "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media link pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
           autosave_ask_before_unload: true,
           codesample_global_prismjs: true,
+          tinydrive_token_provider: "/jwt",
           insert_button_items: "insertfile",
           content_style:
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
