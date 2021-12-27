@@ -57,7 +57,7 @@ const SinglePost = (props) => {
             <h6>2 Comments</h6>
             <br />
           </div>
-          <div className="col-md-10 col-sm-10">
+          <div className="col-md-10 col-sm-10 text-start">
             {htmlFromCMS && htmlFrom(htmlFromCMS)}
             <div>
               <Link to={`/service/${_id}`}>
