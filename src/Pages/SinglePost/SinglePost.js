@@ -3,38 +3,15 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
 import "./SinglePost.css";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
-import {
-  Line,
-  LineContent,
-  LineNo,
-  Pre,
-} from "../../Componrnts/CodeEditor/Style/StyledComponent";
 
 const SinglePost = (props) => {
-  const { Title, Author, date, _id, excelBlog } = props?.post;
-
-  const code = () => (
-    <Highlight {...defaultProps} theme={theme} code={code} language="vb.net">
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <Line key={i} {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              <LineContent>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </LineContent>
-            </Line>
-          ))}
-        </Pre>
-      )}
-    </Highlight>
-  );
+  const { Title, Author, date, _id, excelBlog, code1, postSecondPart } =
+    props?.post;
 
   const htmlFromCMS = `${excelBlog}`;
+
+  // const exampleCode1 = `${code1}
+  // `.trim();
 
   const htmlFrom = (htmlString) => {
     const cleanHtmlString = DOMPurify.sanitize(htmlString, {
@@ -57,8 +34,12 @@ const SinglePost = (props) => {
             <h6>2 Comments</h6>
             <br />
           </div>
-          <div className="col-md-10 col-sm-10 text-start">
+          <div
+            id="highlighter_168045"
+            className="col-md-10 col-sm-10 syntaxhighlighter vb text-start"
+          >
             {htmlFromCMS && htmlFrom(htmlFromCMS)}
+
             <div>
               <Link to={`/service/${_id}`}>
                 {" "}

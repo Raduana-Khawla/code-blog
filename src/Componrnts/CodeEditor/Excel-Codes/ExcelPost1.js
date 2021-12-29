@@ -17,7 +17,7 @@ Private Sub Test()
 End Sub
 `.trim();
 
-const ExcelCode1 = () => (
+const ExcelPost1 = () => (
   <Highlight {...defaultProps} theme={theme} code={exampleCode} language="js">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <Pre className={className} style={style}>
@@ -36,4 +36,4 @@ const ExcelCode1 = () => (
   </Highlight>
 );
 
-export default ExcelCode1;
+export default ExcelPost1;

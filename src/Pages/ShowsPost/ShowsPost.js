@@ -56,7 +56,7 @@ const ShowsPost = (props) => {
                 </h1>
                 <hr />
                 <p className="text-dark">{showDetail?.Title}</p>
-                <div className="my-3">
+                <div className="my-3 text-start">
                   {ReactHtmlParser(showDetail?.excelBlog)}
                 </div>
               </div>
