@@ -14,7 +14,6 @@ const ManagePosts = () => {
     setStatus(e.target.value);
   };
   const handleUpdate = (id) => {
-    // console.log(id);
     fetch(`https://radiant-stream-89624.herokuapp.com/statusUpdate/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -23,7 +22,6 @@ const ManagePosts = () => {
       .then((res) => res.json())
       .then((result) => {
         alert("status update Successfully!");
-        // console.log(result);
       });
   };
   useEffect(() => {
@@ -80,7 +78,6 @@ const ManagePosts = () => {
             <th>Post Title</th>
             <th>Post Author</th>
             <th>Post description</th>
-            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -92,31 +89,14 @@ const ManagePosts = () => {
               <td>{pd.Title}</td>
               <td>{pd.Author}</td>
               <td>{pd.excelBlog}</td>
-              <td>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <select
-                    onClick={() => handleOrderId(pd?._id)}
-                    {...register("status")}
-                  >
-                    <option value={pd?.status}>{pd?.status}</option>
-                    <option value="approve">approve</option>
-                    <option value="done">Done</option>
-                  </select>
-                  <input type="submit" />
-                </form>
-                <input
-                  onChange={handleStatus}
-                  type="text"
-                  defaultValue={pd.status}
-                />
-              </td>
               <button
                 onClick={() => handleDelete(pd?._id)}
                 className="btn bg-danger p-2"
               >
                 Delete
               </button>
-
+              <br />
+              <br />
               <button
                 onClick={() => handleUpdate(pd?._id)}
                 className="btn bg-success p-2"

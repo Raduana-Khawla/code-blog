@@ -56,7 +56,7 @@ const Navbar = () => {
                   <span className="spanTag">Dashboard</span>
                 </Link>
               </li>
-              {user?.email ? (
+              {user?.displayName ? (
                 <button onClick={logOut} variant="light">
                   Logout
                 </button>

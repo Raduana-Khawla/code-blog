@@ -46,6 +46,7 @@ const Login = () => {
   };
   const handleGithub = () => {
     signInWithGithub(location, history);
+    console.log("hello");
   };
   return (
     <Container>
@@ -92,13 +93,13 @@ const Login = () => {
           <p>------------------------</p>
           <div className="d-flex justify-content-evenly">
             <Button onClick={handleGoogleSignIn} variant="contained">
-              <i class="fab fa-google"></i>
+              <i className="fab fa-google"></i>
             </Button>
             <Button onClick={handlefacebook} variant="contained">
-              <i class="fab fa-facebook"></i>
+              <i className="fab fa-facebook"></i>
             </Button>
             <Button onClick={handleGithub} variant="contained">
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </Button>
           </div>
         </Grid>

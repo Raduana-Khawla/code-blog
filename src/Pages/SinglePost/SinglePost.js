@@ -5,13 +5,9 @@ import DOMPurify from "dompurify";
 import "./SinglePost.css";
 
 const SinglePost = (props) => {
-  const { Title, Author, date, _id, excelBlog, code1, postSecondPart } =
-    props?.post;
+  const { Title, Author, date, _id, excelBlog } = props?.post;
 
   const htmlFromCMS = `${excelBlog}`;
-
-  // const exampleCode1 = `${code1}
-  // `.trim();
 
   const htmlFrom = (htmlString) => {
     const cleanHtmlString = DOMPurify.sanitize(htmlString, {
@@ -39,7 +35,7 @@ const SinglePost = (props) => {
             className="col-md-10 col-sm-10 syntaxhighlighter vb text-start"
           >
             {htmlFromCMS && htmlFrom(htmlFromCMS)}
-
+            <br />
             <div>
               <Link to={`/service/${_id}`}>
                 {" "}

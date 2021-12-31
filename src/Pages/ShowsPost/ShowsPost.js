@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ReactHtmlParser from "react-html-parser";
-import Comments from "../../Componrnts/comment/Comments";
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
+import Comments from "../Dashboard/Comment/Comments/Comments";
 
 const ShowsPost = (props) => {
+  const [comment, setComment] = useState([]);
   const [showDetail, setShowDetail] = useState({ comments: [] });
   const { singlePostId } = useParams();
+  console.log(comment);
 
   useEffect(() => {
     fetch(
@@ -19,34 +22,44 @@ const ShowsPost = (props) => {
       .catch((err) => console.log(err));
   }, [singlePostId]);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/comments/${singlePostId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.comments);
+        setComment(data);
+      })
+      .catch((err) => console.log(err));
+  }, [comment]);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/comments?commentID=" + commentID)
+  //     .then((res) => res.json())
+  //     .then((data) => setComment(data));
+  // }, []);
+
+  const htmlFromCMS = `${showDetail?.excelBlog}`;
+
+  const htmlFrom = (htmlString) => {
+    const cleanHtmlString = DOMPurify.sanitize(htmlString, {
+      USE_PROFILES: { html: true },
+    });
+    const html = parse(cleanHtmlString);
+    return html;
+  };
+
   return (
     <>
       <div className="my-3 p-2">
         <div className="details-container my-3">
           <div className="row my-5">
-            <div className="col-md-5 col-sm-5">
-              {/* <div>
-                {showDetail?.comments?.map((comment) => (
-                  <ShowComment data={comment}></ShowComment>
-                ))}
-              </div>
-              <div className="ms-5">
-                {" "}
-                <ReplyShow></ReplyShow>
-              </div> */}
-              {/* <div className="mt-5">
-                <h2>Comments</h2>
-                <Comments></Comments>
-              </div> */}
-
+            <div className="col-md-4 col-sm-4">
               <div>
-                <Comments
-                  commentsUrl="http://localhost:3004/comments"
-                  currentUserId="1"
-                />
+                <Comments commentID={singlePostId}></Comments>
               </div>
+              <div></div>
             </div>
-            <div className="col-md-7 col-sm-7">
+            <div className="col-md-8 col-sm-8">
               <div className="property1 rounded w-100 h-75">
                 <h3 className="text-dark ms-auto fs-5 fw-bold">
                   {showDetail?.Author}
@@ -56,8 +69,11 @@ const ShowsPost = (props) => {
                 </h1>
                 <hr />
                 <p className="text-dark">{showDetail?.Title}</p>
-                <div className="my-3 text-start">
-                  {ReactHtmlParser(showDetail?.excelBlog)}
+                <div
+                  id="highlighter_168045"
+                  className="col-md-12 col-sm-12 my-3 syntaxhighlighter vb text-start"
+                >
+                  {htmlFromCMS && htmlFrom(htmlFromCMS)}
                 </div>
               </div>
             </div>

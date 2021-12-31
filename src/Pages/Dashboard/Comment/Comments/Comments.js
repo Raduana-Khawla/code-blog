@@ -1,58 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
 import "./Comments.css";
 
-const Comments = () => {
+const Comments = ({ commentID }) => {
+  // console.log(comment);
   const { register, handleSubmit } = useForm();
   const { user } = useAuth();
-  console.log(user);
+  // console.log(commentID);
 
   const onSubmit = (data) => {
-    fetch(
-      `https://radiant-stream-89624.herokuapp.com/addcomment/61c08fe44c640097c388f51d`,
-      {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
-      }
-    )
+    const userComment = { data, commentID };
+    console.log(commentID);
+    fetch("http://localhost:5000/addcomment", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userComment),
+    })
       .then((res) => res.json())
       .then((result) => {
         alert("Comment Done!");
       });
-
-    console.log(data);
   };
+
   return (
     <div className="bg p-3">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          className="input-field"
-          name="img"
-          placeholder="image upload"
-          value={user?.photoURL}
-          {...register("img", { required: true })}
-        />
-        <br />
-        <input
-          className="input-field"
-          name="email"
-          value={user?.email}
-          type="email"
-          {...register("email", { required: true })}
-        />
-        <br />
-        <input
-          className="input-field"
-          name="name"
-          value={user?.displayName}
-          type="name"
-          {...register("name", { required: true })}
-        />
-        <br />
-
-        <textarea
           className="input-field"
           name="comments"
           placeholder="Leave your Comment here"

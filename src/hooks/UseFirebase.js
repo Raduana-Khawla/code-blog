@@ -13,12 +13,15 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
+import { set } from "react-hook-form";
 
 // initialize firebase app
 initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
+  console.log(user);
+
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
@@ -57,7 +60,6 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // console.log(result.user);
         const destination = location?.state?.from || "/";
         history.replace(destination);
         setAuthError("");
@@ -89,6 +91,7 @@ const useFirebase = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
+        setUser(user);
         saveUser(user.email, user.displayName, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
@@ -104,6 +107,7 @@ const useFirebase = () => {
     signInWithPopup(auth, githubProvider)
       .then((result) => {
         const user = result.user;
+        setUser(user);
         saveUser(user.email, user.displayName, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
@@ -131,9 +135,13 @@ const useFirebase = () => {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`https://radiant-stream-89624.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
+      .then((data) => {
+        setIsLoading(false);
+        setAdmin(data.admin);
+      });
   }, [user.email]);
 
   const logOut = () => {
@@ -147,6 +155,7 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
+
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
     fetch("https://radiant-stream-89624.herokuapp.com/users", {
@@ -167,8 +176,8 @@ const useFirebase = () => {
     registerUser,
     loginUser,
     signInWithGoogle,
-    FacebookSign,
     logOut,
+    FacebookSign,
     signInWithGithub,
   };
 };
