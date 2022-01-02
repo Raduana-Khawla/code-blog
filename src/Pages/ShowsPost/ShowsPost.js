@@ -2,13 +2,43 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
-import Comments from "../Dashboard/Comment/Comments/Comments";
+import { useForm } from "react-hook-form";
+import Rating from "react-rating";
+import "./ShowPost.css";
 
 const ShowsPost = (props) => {
-  const [comment, setComment] = useState([]);
-  const [showDetail, setShowDetail] = useState({ comments: [] });
+  const [showDetail, setShowDetail] = useState({});
   const { singlePostId } = useParams();
-  console.log(comment);
+  const { register, handleSubmit } = useForm();
+  const [comments, setComments] = useState([]);
+  const [isAddComment, setIsAddComment] = useState(false);
+
+  const onSubmit = (data) => {
+    data.postId = showDetail._id;
+    setIsAddComment(false);
+    fetch("https://radiant-stream-89624.herokuapp.com/addcomment", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        alert("Comment Done!");
+        setIsAddComment(true);
+      });
+  };
+
+  // display comments
+  useEffect(() => {
+    fetch(`https://radiant-stream-89624.herokuapp.com/comments`)
+      .then((res) => res.json())
+      .then((data) => setComments(data));
+  }, [isAddComment]);
+
+  const findPost = comments.filter(
+    (comment) => comment.postId === showDetail._id
+  );
+  // console.log(findPost);
 
   useEffect(() => {
     fetch(
@@ -16,27 +46,10 @@ const ShowsPost = (props) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.comments);
         setShowDetail(data);
       })
       .catch((err) => console.log(err));
   }, [singlePostId]);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/comments/${singlePostId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.comments);
-        setComment(data);
-      })
-      .catch((err) => console.log(err));
-  }, [comment]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/comments?commentID=" + commentID)
-  //     .then((res) => res.json())
-  //     .then((data) => setComment(data));
-  // }, []);
 
   const htmlFromCMS = `${showDetail?.excelBlog}`;
 
@@ -54,12 +67,82 @@ const ShowsPost = (props) => {
         <div className="details-container my-3">
           <div className="row my-5">
             <div className="col-md-4 col-sm-4">
-              <div>
-                <Comments commentID={singlePostId}></Comments>
+              <div className="text-start">
+                {findPost.map((data) => (
+                  <div className="p-3">
+                    <div className="d-flex">
+                      <div className="mx-3">
+                        <img
+                          src={data?.img}
+                          className="imgStyle"
+                          alt="green iguana"
+                        />
+                      </div>
+                      <div>
+                        {data?.date}
+                        <br />
+                        <br />
+                        {data?.comments}
+                        <br />
+                        <br />
+                        <span className="style">
+                          <div className="col-span-9">
+                            <Rating
+                              initialRating={data?.rating}
+                              emptySymbol="far fa-star icon-star"
+                              fullSymbol="fas fa-star icon-star"
+                              readonly
+                            ></Rating>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div></div>
+              {/* <div>
+                <AdminReply></AdminReply>
+              </div> */}
+              <br />
+              <div className="bg p-3">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input
+                    className="input-field"
+                    name="img"
+                    placeholder="Your image link"
+                    {...register("img", { required: true })}
+                  />
+                  <br />
+                  <input
+                    className="input-field"
+                    name="date"
+                    placeholder="Date"
+                    {...register("date", { required: true })}
+                  />
+                  <br />
+                  <input
+                    className="input-field"
+                    name="comments"
+                    placeholder="Leave your Comment here"
+                    {...register("comments", { required: true })}
+                  />
+                  <br />
+                  <input
+                    className="input-field"
+                    name="rating"
+                    placeholder="give Rating on this post"
+                    {...register("rating", { required: true })}
+                  />
+                  <br />
+                  <input
+                    className="submit-btn btn btn-danger mt-3 px-5"
+                    type="submit"
+                    value="Submit"
+                  />
+                </form>
+              </div>
             </div>
-            <div className="col-md-8 col-sm-8">
+            <div className="box col-md-8 col-sm-8">
               <div className="property1 rounded w-100 h-75">
                 <h3 className="text-dark ms-auto fs-5 fw-bold">
                   {showDetail?.Author}

@@ -20,7 +20,7 @@ const SinglePost = (props) => {
     <section>
       <div className="container my-5">
         <div className="row">
-          <div className="col-md-2 col-sm-2">
+          <div className="col-md-2 col-sm-2 ">
             <h3 className="text-dark fs-6 fw-bold">Month: {date}</h3>
             <br />
             <br />
@@ -32,16 +32,15 @@ const SinglePost = (props) => {
           </div>
           <div
             id="highlighter_168045"
-            className="col-md-10 col-sm-10 syntaxhighlighter vb text-start"
+            className="box col-md-10 col-sm-10 syntaxhighlighter vb text-start"
           >
             {htmlFromCMS && htmlFrom(htmlFromCMS)}
-            <br />
-            <div>
-              <Link to={`/service/${_id}`}>
-                {" "}
-                <button className="btn btn-success">Learn More</button>
-              </Link>
-            </div>
+          </div>
+          <div className="mt-3">
+            <Link to={`/service/${_id}`}>
+              {" "}
+              <button className="btn btn-success">Learn More</button>
+            </Link>
           </div>
         </div>
       </div>

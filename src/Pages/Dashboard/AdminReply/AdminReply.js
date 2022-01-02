@@ -1,18 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AdminReply = () => {
+const AdminReply = ({ commentID }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
+    const userComment = { data, commentID };
     fetch("https://radiant-stream-89624.herokuapp.com/addReply", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(userComment),
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Post Done!");
+        alert("Reply Done!");
       });
 
     console.log(data);

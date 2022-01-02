@@ -95,9 +95,9 @@ const Login = () => {
             <Button onClick={handleGoogleSignIn} variant="contained">
               <i className="fab fa-google"></i>
             </Button>
-            <Button onClick={handlefacebook} variant="contained">
+            {/* <Button onClick={handlefacebook} variant="contained">
               <i className="fab fa-facebook"></i>
-            </Button>
+            </Button> */}
             <Button onClick={handleGithub} variant="contained">
               <i className="fab fa-github"></i>
             </Button>

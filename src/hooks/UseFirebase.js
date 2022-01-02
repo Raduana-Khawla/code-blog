@@ -13,15 +13,12 @@ import {
   FacebookAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-import { set } from "react-hook-form";
 
 // initialize firebase app
 initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  console.log(user);
-
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);

@@ -5,6 +5,7 @@ import MakeAdmin from "../../Dashboard/MakeAdmin/MakeAdmin";
 import UserPost from "../UserPost/UserPost/UserPost";
 import AllPosts from "../../AllPosts/AllPosts";
 import ManagePosts from "../ManagePosts/ManagePosts";
+import AdminRoute from "../../../Componrnts/Shared/Login/AdminRoute/AdminRoute";
 import AdminReply from "../AdminReply/AdminReply";
 
 const Dashbaord = () => {
@@ -44,18 +45,18 @@ const Dashbaord = () => {
           <div className="col-md-9">
             <h2>Welcome in our website</h2>
             <Switch>
-              <Route exact path={`${path}/userPost`}>
+              <AdminRoute exact path={`${path}/userPost`}>
                 <UserPost></UserPost>
-              </Route>
+              </AdminRoute>
               <Route exact path={`${path}/allPosts`}>
                 <AllPosts></AllPosts>
               </Route>
-              <Route exact path={`${path}/managePosts`}>
+              <AdminRoute exact path={`${path}/managePosts`}>
                 <ManagePosts></ManagePosts>
-              </Route>
-              <Route exact path={`${path}/makeAdmin`}>
+              </AdminRoute>
+              <AdminRoute exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
-              </Route>
+              </AdminRoute>
               <Route exact path={`${path}/adminReply`}>
                 <AdminReply></AdminReply>
               </Route>

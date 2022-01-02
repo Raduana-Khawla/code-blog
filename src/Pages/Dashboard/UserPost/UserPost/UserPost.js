@@ -11,7 +11,7 @@ const UserPost = () => {
   const { token, admin } = useAuth();
 
   const onSubmit = (value) => {
-    const data = { ...value, userId: admin._id, comments: [{ replay: [] }] };
+    const data = { ...value, userId: admin._id };
     data.excelBlog = editorRef.current.getContent();
     console.log(data);
     fetch("https://radiant-stream-89624.herokuapp.com/addPost", {
@@ -81,19 +81,6 @@ const UserPost = () => {
               "print preview tinydrive powerpaste casechange importcss  searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image media link tinydrive code imagetools mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable",
           },
           menubar: "file edit view insert format tools table tc help",
-          codesample_languages: [
-            { text: "HTML/XML", value: "markup" },
-            { text: "JavaScript", value: "javascript" },
-            { text: "CSS", value: "css" },
-            { text: "PHP", value: "php" },
-            { text: "Ruby", value: "ruby" },
-            { text: "Python", value: "python" },
-            { text: "Java", value: "java" },
-            { text: "C", value: "c" },
-            { text: "C#", value: "csharp" },
-            { text: "C++", value: "cpp" },
-            { text: "VBA/VB6", value: "vbnet" },
-          ],
           toolbar:
             "undo redo | bold italic underline insert strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media link pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment",
           autosave_ask_before_unload: true,

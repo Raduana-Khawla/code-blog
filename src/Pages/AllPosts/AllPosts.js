@@ -9,7 +9,7 @@ const AllPosts = () => {
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => console.log("all Post ", err));
   }, []);
@@ -19,7 +19,7 @@ const AllPosts = () => {
       <div>
         {/* render Packages from server side */}
         {posts?.map((post) => (
-          <SinglePost post={post}></SinglePost>
+          <SinglePost key={post.id} post={post}></SinglePost>
         ))}
       </div>
     </section>
