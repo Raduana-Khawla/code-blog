@@ -37,7 +37,7 @@ const Banner = () => {
   return (
     <section>
       <div className="row">
-        <div className="col-md-7 col-sm-7">
+        <div className="col-md-8 col-sm-8">
           <div className="text-success fs-1 fw-bold text-center">
             <Typical
               steps={[
@@ -136,7 +136,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-5 col-sm-5">
+        <div className="col-md-4 col-sm-4">
           <div>
             <div className="search-container">
               <input
@@ -158,12 +158,11 @@ const Banner = () => {
           <br />
           <br />
           <div className="mt-5">
-            <h2>Archives</h2>
-            <br />
+            <h2>Posts</h2>
+            <hr />
             <h4>Total Posts - {posts.length}</h4>
-            <br />
             {posts?.map((pd, index) => (
-              <h6>
+              <h6 className="text-start mx-5">
                 <Link to={`/services/${pd._id}`}>
                   {index}){pd?.Title}
                   {pd.length}
