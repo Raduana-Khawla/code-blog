@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
 import { useForm } from "react-hook-form";
-import Rating from "react-rating";
 import "./ShowPost.css";
 
 const ShowsPost = (props) => {

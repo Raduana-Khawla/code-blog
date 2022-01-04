@@ -1,0 +1,102 @@
+[debug] [2022-01-04T15:06:52.848Z] ----------------------------------------------------------------------
+[debug] [2022-01-04T15:06:52.851Z] Command:       E:\Program Files\nodejs\node.exe C:\Users\Khawla\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-01-04T15:06:52.852Z] CLI Version:   10.0.1
+[debug] [2022-01-04T15:06:52.852Z] Platform:      win32
+[debug] [2022-01-04T15:06:52.852Z] Node Version:  v14.17.1
+[debug] [2022-01-04T15:06:52.869Z] Time:          Tue Jan 04 2022 21:06:52 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-01-04T15:06:52.870Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-01-04T15:06:52.944Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-01-04T15:06:52.944Z] > authorizing via signed-in user (raduanakhawla468@gmail.com)
+[debug] [2022-01-04T15:06:52.944Z] [iam] checking project code-blog-d0db7 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-01-04T15:06:52.947Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/code-blog-d0db7:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-01-04T15:06:54.429Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 04 Jan 2022 15:06:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=949","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:06:54.433Z] > refreshing access token with scopes: []
+[debug] [2022-01-04T15:06:54.434Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-01-04T15:06:54.919Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 04 Jan 2022 15:06:55 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:06:54.963Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/code-blog-d0db7 [none]
+[debug] [2022-01-04T15:06:55.887Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/code-blog-d0db7 200
+[debug] [2022-01-04T15:06:55.888Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/code-blog-d0db7 {"projectId":"code-blog-d0db7","projectNumber":"531367965640","displayName":"code-blog","name":"projects/code-blog-d0db7","resources":{"hostingSite":"code-blog-d0db7"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'code-blog-d0db7'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-01-04T15:06:55.901Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2022-01-04T15:06:55.902Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-01-04T15:06:56.272Z] <<< HTTP RESPONSE 200 {"date":"Tue, 04 Jan 2022 15:06:57 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:06:56.301Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-01-04T15:07:02.088Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 04 Jan 2022 15:07:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[code-blog-d0db7]: beginning deploy... 
+[info] i  hosting[code-blog-d0db7]: found 20 files in build 
+[debug] [2022-01-04T15:07:02.571Z] > refreshing access token with scopes: []
+[debug] [2022-01-04T15:07:02.572Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-01-04T15:07:02.577Z] [hosting] hash cache [YnVpbGQ] stored for 20 files
+[debug] [2022-01-04T15:07:02.577Z] [hosting][hash queue][FINAL] {"max":410,"min":4,"avg":43.15,"active":0,"complete":20,"success":20,"errored":0,"retried":0,"total":20,"elapsed":425}
+[debug] [2022-01-04T15:07:02.966Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Tue, 04 Jan 2022 15:07:03 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:07:02.996Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/versions/e691627011421e45:populateFiles [none]
+[debug] [2022-01-04T15:07:02.997Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/versions/e691627011421e45:populateFiles {"files":{"/fakeData":"f6f7c9653ac6fd2c2fdb6429fac6179493f3654044fd21e6b2241b4071e2b887","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/asset-manifest.json":"adebd340ea573c17c72a1687bf7ec222f90fed9d90d7b6b54ca9d66e53dd3c0a","/index.html":"83eaa010e0b4e116653fff4a5d0560ff528d7339a5ed6dd8c68adaedb42d6acc","/static/css/main.cd060b01.chunk.css":"74b9eade1390e8b2f9d4ecbdc6d3471290094f4cb1393098b841bebe19b02d63","/static/css/main.cd060b01.chunk.css.map":"afc1de3000009267d4ad84cc27b4412a02e8b75f4df12ec1dcd13f576c30a40a","/static/js/2.581f6baa.chunk.js.LICENSE.txt":"603fbea6c6647c32586ffdc3f13dbab22e0e599f9c35b2ac13a79906d45c493f","/static/js/3.f9f2bf11.chunk.js":"62bb8ec9d3e9fec9c25b42e6ef87b1b48c45073586bda489a7ad05dc8c7e51e1","/static/js/3.f9f2bf11.chunk.js.map":"cd071f6133f41d44fc965f894d0df15588cf9f2daeee7b4ff27f14a52fffd9e0","/static/js/main.13eeb10c.chunk.js":"21bdcf777b8abaebd1c352ee0022ea8dd9b50cf1f18e7709532024a5cbe67328","/static/js/runtime-main.0d241bd1.js":"0a9fa0792312725ea3ef951d83855aa8921a0017b9891ad5b927c880caed3171","/static/js/runtime-main.0d241bd1.js.map":"cfffa89a6573e1d8c55e5f345debf0d056e397eba836f2b5a8d31726f5e2a10e","/static/js/main.13eeb10c.chunk.js.map":"3b66e415fab4cd7bf593788181ad8df79e405fa61c503a2dc0283ada0d3470e2","/static/media/Final-Resume.c781b0ff.pdf":"ad84d079379d42d5c9f3134f3a1c1b6eb99d4cb7405b21461ff5a8168868b99c","/static/js/2.581f6baa.chunk.js":"746c99f20656c3a84874eba6b6cba907285e09c95736e5d821254444fc387f0e","/static/js/2.581f6baa.chunk.js.map":"b8f9b447d7f316d367b88844efbfceba48d1da24ed4c8994cd37090e9f55f57d"}}
+[debug] [2022-01-04T15:07:05.116Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/versions/e691627011421e45:populateFiles 200
+[debug] [2022-01-04T15:07:05.116Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/versions/e691627011421e45:populateFiles {"uploadRequiredHashes":["3b66e415fab4cd7bf593788181ad8df79e405fa61c503a2dc0283ada0d3470e2","adebd340ea573c17c72a1687bf7ec222f90fed9d90d7b6b54ca9d66e53dd3c0a","21bdcf777b8abaebd1c352ee0022ea8dd9b50cf1f18e7709532024a5cbe67328","83eaa010e0b4e116653fff4a5d0560ff528d7339a5ed6dd8c68adaedb42d6acc"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files"}
+[debug] [2022-01-04T15:07:05.118Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/3b66e415fab4cd7bf593788181ad8df79e405fa61c503a2dc0283ada0d3470e2 [none]
+[debug] [2022-01-04T15:07:05.118Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/3b66e415fab4cd7bf593788181ad8df79e405fa61c503a2dc0283ada0d3470e2 [stream]
+[debug] [2022-01-04T15:07:05.124Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/adebd340ea573c17c72a1687bf7ec222f90fed9d90d7b6b54ca9d66e53dd3c0a [none]
+[debug] [2022-01-04T15:07:05.125Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/adebd340ea573c17c72a1687bf7ec222f90fed9d90d7b6b54ca9d66e53dd3c0a [stream]
+[debug] [2022-01-04T15:07:05.128Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/21bdcf777b8abaebd1c352ee0022ea8dd9b50cf1f18e7709532024a5cbe67328 [none]
+[debug] [2022-01-04T15:07:05.128Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/21bdcf777b8abaebd1c352ee0022ea8dd9b50cf1f18e7709532024a5cbe67328 [stream]
+[debug] [2022-01-04T15:07:05.130Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/83eaa010e0b4e116653fff4a5d0560ff528d7339a5ed6dd8c68adaedb42d6acc [none]
+[debug] [2022-01-04T15:07:05.130Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/83eaa010e0b4e116653fff4a5d0560ff528d7339a5ed6dd8c68adaedb42d6acc [stream]
+[debug] [2022-01-04T15:07:05.131Z] [hosting][populate queue][FINAL] {"max":2547,"min":2547,"avg":2547,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":2560}
+[debug] [2022-01-04T15:07:05.131Z] [hosting] uploads queued: 4
+[debug] [2022-01-04T15:07:07.238Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/83eaa010e0b4e116653fff4a5d0560ff528d7339a5ed6dd8c68adaedb42d6acc 200
+[debug] [2022-01-04T15:07:07.239Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/83eaa010e0b4e116653fff4a5d0560ff528d7339a5ed6dd8c68adaedb42d6acc [stream]
+[debug] [2022-01-04T15:07:07.289Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/21bdcf777b8abaebd1c352ee0022ea8dd9b50cf1f18e7709532024a5cbe67328 200
+[debug] [2022-01-04T15:07:07.290Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/21bdcf777b8abaebd1c352ee0022ea8dd9b50cf1f18e7709532024a5cbe67328 [stream]
+[debug] [2022-01-04T15:07:07.540Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/adebd340ea573c17c72a1687bf7ec222f90fed9d90d7b6b54ca9d66e53dd3c0a 200
+[debug] [2022-01-04T15:07:07.541Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/adebd340ea573c17c72a1687bf7ec222f90fed9d90d7b6b54ca9d66e53dd3c0a [stream]
+[debug] [2022-01-04T15:07:07.589Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/3b66e415fab4cd7bf593788181ad8df79e405fa61c503a2dc0283ada0d3470e2 200
+[debug] [2022-01-04T15:07:07.590Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/code-blog-d0db7/versions/e691627011421e45/files/3b66e415fab4cd7bf593788181ad8df79e405fa61c503a2dc0283ada0d3470e2 [stream]
+[debug] [2022-01-04T15:07:07.591Z] [hosting][upload queue][FINAL] {"max":2475,"min":2121,"avg":2298.25,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":2475}
+[info] +  hosting[code-blog-d0db7]: file upload complete 
+[debug] [2022-01-04T15:07:07.596Z] [hosting] deploy completed after 5502ms
+[debug] [2022-01-04T15:07:07.642Z] [
+  {
+    "config": {
+      "public": "build",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "code-blog-d0db7"
+    },
+    "site": "code-blog-d0db7",
+    "version": "sites/code-blog-d0db7/versions/e691627011421e45"
+  }
+]
+[info] i  hosting[code-blog-d0db7]: finalizing version... 
+[debug] [2022-01-04T15:07:07.644Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2022-01-04T15:07:07.644Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-01-04T15:07:08.057Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 04 Jan 2022 15:07:08 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:07:08.086Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/versions/e691627011421e45?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2022-01-04T15:07:10.198Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 04 Jan 2022 15:07:10 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:07:10.199Z] [hosting] finalized version for code-blog-d0db7: {"name":"sites/code-blog-d0db7/versions/e691627011421e45","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-01-04T15:06:59.133947Z","createUser":{"email":"raduanakhawla468@gmail.com"},"finalizeTime":"2022-01-04T15:07:10.821728Z","finalizeUser":{"email":"raduanakhawla468@gmail.com"}}
+[info] +  hosting[code-blog-d0db7]: version finalized 
+[info] i  hosting[code-blog-d0db7]: releasing new version... 
+[debug] [2022-01-04T15:07:10.203Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/code-blog-d0db7/releases?version_name=sites/code-blog-d0db7/versions/e691627011421e45  
+ {"message":null}
+[debug] [2022-01-04T15:07:12.429Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 04 Jan 2022 15:07:13 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-04T15:07:12.430Z] [hosting] release: {"name":"sites/code-blog-d0db7/releases/1641308832534098","version":{"name":"sites/code-blog-d0db7/versions/e691627011421e45","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-01-04T15:06:59.133947Z","createUser":{"email":"raduanakhawla468@gmail.com"},"finalizeTime":"2022-01-04T15:07:10.821728Z","finalizeUser":{"email":"raduanakhawla468@gmail.com"}},"type":"DEPLOY","releaseTime":"2022-01-04T15:07:12.534098368Z","releaseUser":{"email":"raduanakhawla468@gmail.com"}}
+[info] +  hosting[code-blog-d0db7]: release complete 

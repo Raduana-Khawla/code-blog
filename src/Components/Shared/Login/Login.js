@@ -41,9 +41,9 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signInWithGoogle(location, history);
   };
-  const handlefacebook = () => {
-    FacebookSign(location, history);
-  };
+  // const handlefacebook = () => {
+  //   FacebookSign(location, history);
+  // };
   const handleGithub = () => {
     signInWithGithub(location, history);
     console.log("hello");
