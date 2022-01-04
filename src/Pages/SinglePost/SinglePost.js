@@ -32,7 +32,7 @@ const SinglePost = (props) => {
           </div>
           <div
             id="highlighter_168045"
-            className="box col-md-10 col-sm-10 syntaxhighlighter vb text-start"
+            className="col-md-10 col-sm-10 syntaxhighlighter vb text-start"
           >
             {htmlFromCMS && htmlFrom(htmlFromCMS)}
           </div>

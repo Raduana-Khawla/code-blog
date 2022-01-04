@@ -43,26 +43,25 @@ export default function ContactUs() {
             />
             <div className="p-3 text-left text-light">
               <h1 className="text-danger">Leave Your Message</h1>
-              <h6 className="text-dark">Phone: +880 00000</h6>
               <h6 className="text-dark">Email: 1997ismail.hosen@gmail.com</h6>
             </div>
             <div className="p-3">
               <a
-                href="https://github.com/Raduana-Khawla"
+                href="https://github.com/1504168"
                 style={{ textDecoration: "none" }}
                 className="text-warning p-3"
               >
                 <i className="fab fa-github"></i>
               </a>
               <a
-                href="https://www.facebook.com/profile.php?id=100013956430364"
+                href="https://www.facebook.com/mdismail.hosen.7"
                 style={{ textDecoration: "none" }}
                 className="text-warning p-3"
               >
                 <i className="fab fa-facebook"></i>
               </a>
               <a
-                href="https://www.linkedin.com/in/raduana-khawla-279873182/"
+                href="https://www.linkedin.com/in/md-ismail-hosen-b77500135/?fbclid=IwAR3Zpx8PIP45ilwSjcKq8KkUYa1RgldeXl-w8ukyqTgZepfHV_BHlNPsLdM"
                 style={{ textDecoration: "none" }}
                 className="text-warning p-3"
               >

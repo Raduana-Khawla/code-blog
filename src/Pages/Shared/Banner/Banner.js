@@ -160,12 +160,13 @@ const Banner = () => {
           <div className="mt-5">
             <h2>Archives</h2>
             <br />
-            <h4>Total Posts{posts.length}</h4>
+            <h4>Total Posts - {posts.length}</h4>
             <br />
             {posts?.map((pd, index) => (
               <h6>
                 <Link to={`/services/${pd._id}`}>
-                  {index}){pd?.date}..............{pd.length}
+                  {index}){pd?.Title}
+                  {pd.length}
                 </Link>
               </h6>
             ))}

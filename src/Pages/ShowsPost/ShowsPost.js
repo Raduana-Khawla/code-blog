@@ -65,84 +65,8 @@ const ShowsPost = (props) => {
     <>
       <div className="my-3 p-2">
         <div className="details-container my-3">
-          <div className="row my-5">
-            <div className="col-md-4 col-sm-4">
-              <div className="text-start">
-                {findPost.map((data) => (
-                  <div className="p-3">
-                    <div className="d-flex">
-                      <div className="mx-3">
-                        <img
-                          src={data?.img}
-                          className="imgStyle"
-                          alt="green iguana"
-                        />
-                      </div>
-                      <div>
-                        {data?.date}
-                        <br />
-                        <br />
-                        {data?.comments}
-                        <br />
-                        <br />
-                        <span className="style">
-                          <div className="col-span-9">
-                            <Rating
-                              initialRating={data?.rating}
-                              emptySymbol="far fa-star icon-star"
-                              fullSymbol="fas fa-star icon-star"
-                              readonly
-                            ></Rating>
-                          </div>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {/* <div>
-                <AdminReply></AdminReply>
-              </div> */}
-              <br />
-              <div className="bg p-3">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <input
-                    className="input-field"
-                    name="img"
-                    placeholder="Your image link"
-                    {...register("img", { required: true })}
-                  />
-                  <br />
-                  <input
-                    className="input-field"
-                    name="date"
-                    placeholder="Date"
-                    {...register("date", { required: true })}
-                  />
-                  <br />
-                  <input
-                    className="input-field"
-                    name="comments"
-                    placeholder="Leave your Comment here"
-                    {...register("comments", { required: true })}
-                  />
-                  <br />
-                  <input
-                    className="input-field"
-                    name="rating"
-                    placeholder="give Rating on this post"
-                    {...register("rating", { required: true })}
-                  />
-                  <br />
-                  <input
-                    className="submit-btn btn btn-danger mt-3 px-5"
-                    type="submit"
-                    value="Submit"
-                  />
-                </form>
-              </div>
-            </div>
-            <div className="box col-md-8 col-sm-8">
+          <div className="row my-5 ms-5">
+            <div className="col-md-10 col-sm-10">
               <div className="property1 rounded w-100 h-75">
                 <h3 className="text-dark ms-auto fs-5 fw-bold">
                   {showDetail?.Author}
@@ -158,6 +82,51 @@ const ShowsPost = (props) => {
                 >
                   {htmlFromCMS && htmlFrom(htmlFromCMS)}
                 </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-sm-6">
+              <div className="text-start">
+                {findPost.map((data) => (
+                  <div className="p-3">
+                    <div className="d-flex">
+                      <div className="mx-3">
+                        <img
+                          src={data?.img}
+                          className="imgStyle"
+                          alt="green iguana"
+                        />
+                      </div>
+                      <div>{data?.comments}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* <div>
+                <AdminReply></AdminReply>
+              </div> */}
+              <br />
+              <div className="bg p-3">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <textarea
+                    className="input-field"
+                    name="comments"
+                    placeholder="Leave your Comment here"
+                    {...register("comments", { required: true })}
+                  />
+                  <br />
+                  <input
+                    className="input-field"
+                    name="img"
+                    placeholder="Your image link"
+                    {...register("img", { required: true })}
+                  />
+                  <br />
+                  <input
+                    className="submit-btn btn btn-danger mt-3 px-5"
+                    type="submit"
+                    value="Submit"
+                  />
+                </form>
               </div>
             </div>
           </div>

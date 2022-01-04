@@ -1,4 +1,4 @@
-import initializeAuthentication from "../Componrnts/Shared/Firebase/firebase.init";
+import initializeAuthentication from "../Components/Shared/Firebase/firebase.init";
 import { useState, useEffect } from "react";
 import {
   getAuth,

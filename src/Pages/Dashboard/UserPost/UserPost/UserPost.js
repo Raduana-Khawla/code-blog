@@ -43,19 +43,10 @@ const UserPost = () => {
         <br />
         <input
           className="input-field"
-          name="Author"
-          placeholder="Author name"
-          {...register("Author", { required: true })}
-        />
-        <br />
-        <br />
-        <input
-          className="input-field"
           name="date"
           placeholder="Date"
           {...register("date", { required: true })}
         />
-        <br />
         <br />
         <br />
         <input

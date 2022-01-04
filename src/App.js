@@ -4,16 +4,15 @@ import Home from "./Pages/Home/Home";
 import AllPosts from "./Pages/AllPosts/AllPosts";
 import ContactUs from "./Pages/Contact/Contact";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
-import PrivetRoute from "./Componrnts/Shared/PrivetRoute/PrivetRoute";
-import Login from "./Componrnts/Shared/Login/Login";
-import Register from "./Componrnts/Register/Register";
+import Login from "./Components/Shared/Login/Login";
+import Register from "./Components/Register/Register";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ShowsPost from "./Pages/ShowsPost/ShowsPost";
 import FileDownloader from "./Pages/DownloadFiles/FileDownloader/FileDownloader";
-import AdminRoute from "./Componrnts/Shared/Login/AdminRoute/AdminRoute";
+import AdminRoute from "./Components/Shared/Login/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -52,9 +51,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivetRoute path="/dashboard">
+            <AdminRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </PrivetRoute>
+            </AdminRoute>
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>

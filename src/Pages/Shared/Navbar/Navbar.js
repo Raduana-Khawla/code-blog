@@ -4,7 +4,8 @@ import UseFirebase from "../../../hooks/UseFirebase";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, logOut } = UseFirebase();
+  const { admin, user, logOut } = UseFirebase();
+  console.log(user);
   return (
     <div>
       <nav className="navbar design1 navbar-expand-lg navbar-light">
@@ -43,7 +44,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/fileDownloader">
-                  <span className="spanTag">File Download</span>
+                  <span className="spanTag">Download</span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -51,19 +52,25 @@ const Navbar = () => {
                   <span className="spanTag">Contact Us</span>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/dashboard">
-                  <span className="spanTag">Dashboard</span>
-                </Link>
-              </li>
-              {user?.displayName ? (
-                <button onClick={logOut} variant="light">
+              {admin && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard">
+                    <span className="spanTag">Dashboard</span>
+                  </Link>
+                </li>
+              )}
+              {user?.email ? (
+                <button
+                  className="bg-success text-light"
+                  onClick={logOut}
+                  variant="light"
+                >
                   Logout
                 </button>
               ) : (
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">
-                    <span className="spanTag">Login</span>
+                    <span className="spanTag bg-success p-3">Login</span>
                   </Link>
                 </li>
               )}
@@ -72,10 +79,23 @@ const Navbar = () => {
                   <span className="spanTag">NotFound</span>
                 </Link>
               </li>
-              <span className="spanTag">Signed in as:</span>{" "}
-              <a className="text-warning" href="#login">
-                {user?.displayName}
-              </a>{" "}
+              {user?.photoURL ? (
+                <li className="pic">
+                  <img
+                    className="w-75 h-100 rounded-circle"
+                    src={user?.photoURL}
+                    alt="photo"
+                  />
+                </li>
+              ) : (
+                <li className="pic">
+                  <img
+                    className="w-75 h-100 rounded-circle"
+                    src="https://i.ibb.co/FWQmPZr/pngtree-beautiful-admin-roles-line-vector-icon-png-image-5256998.jpg"
+                    alt="photo"
+                  />
+                </li>
+              )}
             </ul>
           </div>
         </div>
