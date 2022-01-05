@@ -145,7 +145,12 @@ const Banner = () => {
                 value={searchValue}
                 placeholder="Search Post"
               />
-              <button onClick={handleSearchBtn}>Search</button>
+              <button
+                className="bg-primary text-light"
+                onClick={handleSearchBtn}
+              >
+                Search
+              </button>
             </div>
             <div>
               {searchResult.map((item) => (
@@ -158,19 +163,39 @@ const Banner = () => {
           <br />
           <br />
           <div className="mt-5">
-            <h2>Posts</h2>
-            <hr />
-            <h4>Total Posts - {posts.length}</h4>
+            <h2>
+              <u>Posts</u>
+            </h2>
+            <h4 className="mb-5">
+              <u>Total Posts - {posts.length}</u>
+            </h4>
             {posts?.map((pd, index) => (
               <h6 className="text-start mx-5">
                 <Link to={`/services/${pd._id}`}>
                   {index}){pd?.Title}
-                  {pd.length}
+                  {pd?.length}
                 </Link>
               </h6>
             ))}
           </div>
         </div>
+      </div>
+      <div className="mt-5">
+        <h5 className="text-start p-3">
+          <u>Blog Status</u>
+        </h5>{" "}
+        <h5 className="text-start p-3 ms-5">
+          <u>Archive</u>
+        </h5>
+        {posts?.map((pd, index) => (
+          <h6 className="text-start mx-5">
+            <Link to={`/services/${pd._id}`}>
+              {index}){pd?.date}
+            </Link>
+            .........................................................................
+            {pd.length}
+          </h6>
+        ))}
       </div>
     </section>
   );
