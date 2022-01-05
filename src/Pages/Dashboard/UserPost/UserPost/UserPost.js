@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
@@ -6,7 +6,6 @@ import "./UserPost.css";
 
 const UserPost = () => {
   const editorRef = useRef(null);
-
   const { register, handleSubmit } = useForm();
   const { token, admin } = useAuth();
 
@@ -27,13 +26,21 @@ const UserPost = () => {
         alert("Post Done!");
       });
   };
+  const showdate = new Date();
+  // const displaytodaydate =
+  //   showdate.getDate() +
+  //   "/" +
+  //   (showdate.getMonth() + 1) +
+  //   "/" +
+  //   showdate.getFullYear();
+  const dt = showdate.toDateString();
 
   return (
     <div className="bg my-5">
       <h1>User Post</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className="input-field"
+        <textarea
+          className="input-field w-50"
           name="title"
           placeholder="enter head-line"
           type="name"
@@ -42,15 +49,18 @@ const UserPost = () => {
         <br />
         <br />
         <input
-          className="input-field"
-          name="date"
+          {...register("date")}
           placeholder="Date"
-          {...register("date", { required: true })}
+          type="text"
+          value={dt}
+          readOnly="true"
         />
         <br />
         <br />
+        <br />
+        <br />
         <input
-          className="submit-btn btn btn-danger mt-3 px-5"
+          className="submit-btn btn btn-danger px-5"
           type="submit"
           value="post"
         />

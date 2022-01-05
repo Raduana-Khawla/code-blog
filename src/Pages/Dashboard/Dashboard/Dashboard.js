@@ -34,15 +34,6 @@ const Dashbaord = () => {
               <Route exact path={`${path}/allPosts`}>
                 <AllPosts></AllPosts>
               </Route>
-              {/* <AdminRoute exact path={`${path}/managePosts`}>
-                <ManagePosts></ManagePosts>
-              </AdminRoute> */}
-              {/* <AdminRoute exact path={`${path}/makeAdmin`}>
-                <MakeAdmin></MakeAdmin>
-              </AdminRoute> */}
-              {/* <Route exact path={`${path}/adminReply`}>
-                <AdminReply></AdminReply>
-              </Route> */}
             </Switch>
           </div>
         </div>

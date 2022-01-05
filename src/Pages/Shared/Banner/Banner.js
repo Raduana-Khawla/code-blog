@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Banner.css";
 import { Link } from "react-router-dom";
 
-const Banner = () => {
+const Banner = ({ date }) => {
   const [posts, setPosts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -155,7 +155,7 @@ const Banner = () => {
             <div>
               {searchResult.map((item) => (
                 <h6 className="text-dark">
-                  <Link to={`/services/${item._id}`}>{item.date}</Link>
+                  <Link to={`/services/${item._id}`}>{date}</Link>
                 </h6>
               ))}
             </div>
