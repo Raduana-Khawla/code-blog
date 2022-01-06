@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { admin, user, logOut } = UseFirebase();
-  console.log(user);
+
   return (
     <div>
       <nav className="navbar design1 navbar-expand-lg navbar-light">

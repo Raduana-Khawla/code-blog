@@ -3,15 +3,62 @@ import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
 import { useForm } from "react-hook-form";
+import { Button, Input } from "@mui/material";
+import { Grid } from "@mui/material";
 import "./ShowPost.css";
+import useAuth from "../../hooks/useAuth";
 
 const ShowsPost = (props) => {
-  const [showDetail, setShowDetail] = useState({});
   const { singlePostId } = useParams();
   const { register, handleSubmit } = useForm();
+  const [images, setImages] = useState([]);
+  const [image, setImage] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const [isAddImage, setIsAddImage] = useState(false);
+
+  const [showDetail, setShowDetail] = useState({});
+
   const [comments, setComments] = useState([]);
   const [isAddComment, setIsAddComment] = useState(false);
 
+  const { user } = useAuth();
+  // handle upload images
+  const imagehandleSubmit = (e) => {
+    e.preventDefault();
+    if (!image) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("postId", showDetail._id);
+
+    setIsAddImage(false);
+    // post images
+    fetch("https://radiant-stream-89624.herokuapp.com/image", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          setSuccess("Images added successfully");
+          console.log("img added successfully");
+          setIsAddImage(true);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+  // load images
+  useEffect(() => {
+    fetch("https://radiant-stream-89624.herokuapp.com/image")
+      .then((res) => res.json())
+      .then((data) => setImages(data));
+  }, [isAddImage]);
+
+  const findImage = images.filter((pd) => pd.postId === showDetail._id);
+  // add comments
   const onSubmit = (data) => {
     data.postId = showDetail._id;
     setIsAddComment(false);
@@ -59,6 +106,8 @@ const ShowsPost = (props) => {
     const html = parse(cleanHtmlString);
     return html;
   };
+  const showdate = new Date();
+  const dt = showdate.toDateString();
 
   return (
     <>
@@ -83,41 +132,109 @@ const ShowsPost = (props) => {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-sm-6">
+            <div className="col-md-12 col-sm-12">
               <div className="text-start">
                 {findPost.map((data) => (
                   <div className="p-3">
-                    <div className="d-flex">
-                      <div className="mx-3">
-                        <img
-                          src={data?.img}
-                          className="imgStyle"
-                          alt="green iguana"
-                        />
+                    <div className="row d-flex">
+                      <div className="col-md-3 col-sm-3 d-flex">
+                        <div className="mx-3">
+                          <ul>
+                            {user?.photoURL ? (
+                              <li className="pic">
+                                <img
+                                  className="w-75 h-100 rounded-circle"
+                                  src={user?.photoURL}
+                                  alt="photo"
+                                />
+                              </li>
+                            ) : (
+                              <li className="pic">
+                                <img
+                                  className="w-75 h-100 rounded-circle"
+                                  src="https://i.ibb.co/FWQmPZr/pngtree-beautiful-admin-roles-line-vector-icon-png-image-5256998.jpg"
+                                  alt="photo"
+                                />
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                        <div>
+                          <h6>{data?.name}</h6>
+                          <h6>{data?.date}</h6>
+                          {/* <a href="form">
+                            <h5>Reply</h5>
+                            <hr />
+                          </a> */}
+                        </div>
                       </div>
-                      <div>{data?.comments}</div>
+                      <div className="col-md-7 col-sm-7 mx-5">
+                        {data?.comments}
+                        {findImage.map((e) => (
+                          <Grid item xs={12} sm={6} md={6}>
+                            <img
+                              style={{ width: "400px", height: "350px" }}
+                              src={`data:image/png;base64,${e?.image}`}
+                              alt=""
+                            />
+                          </Grid>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
-              {/* <div>
-                <AdminReply></AdminReply>
-              </div> */}
               <br />
-              <div className="bg p-3">
+              <div className="bg p-3 col-md-6 col-sm-6">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <textarea
-                    className="input-field"
+                    className="form-control bg-light"
                     name="comments"
                     placeholder="Leave your Comment here"
                     {...register("comments", { required: true })}
                   />
                   <br />
+                  <br />
+                  {user?.email ? (
+                    <>
+                      <input
+                        className="form-control bg-light"
+                        placeholder="Email Address *"
+                        {...register("email")}
+                      />
+                      <br />
+                      <input
+                        className="form-control bg-light"
+                        placeholder="Name *"
+                        {...register("name")}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <input
+                        type="email"
+                        name="user_email"
+                        className="form-control bg-light"
+                        placeholder="Email Address *"
+                        {...register("email", { required: true })}
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        name="user_name"
+                        className="form-control bg-light"
+                        placeholder="Name *"
+                        {...register("name", { required: true })}
+                      />
+                    </>
+                  )}
+                  <br />
                   <input
-                    className="input-field"
-                    name="img"
-                    placeholder="Your image link"
-                    {...register("img", { required: true })}
+                    {...register("date")}
+                    placeholder="Date"
+                    type="text"
+                    value={dt}
+                    readOnly="true"
                   />
                   <br />
                   <input
@@ -127,6 +244,23 @@ const ShowsPost = (props) => {
                   />
                 </form>
               </div>
+              <br />
+              <br />
+              <form onSubmit={imagehandleSubmit}>
+                <div className="text-start">
+                  <Input
+                    accept="image/*"
+                    type="file"
+                    onChange={(e) => setImage(e.target.files[0])}
+                  />
+                  <br />
+                  <br />
+                  <Button variant="contained" type="submit">
+                    Add Image
+                  </Button>
+                </div>
+              </form>
+              {success && <p style={{ color: "green" }}>{success}</p>}
             </div>
           </div>
         </div>
