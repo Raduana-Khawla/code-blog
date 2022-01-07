@@ -19,9 +19,13 @@ const Banner = () => {
             />
           </div>
           <p>
-            Welcome to my website. Please check posts Tab if you want to learn
+            Please check youtube if you want to learn about excel vba.{" "}
+            <a href="https://www.youtube.com/channel/UCL-q7_WvISkw0Ox9FRBBzmw">YouTube</a>
+          </p>
+          <p>
+            Welcome to my website. Please check posts tab if you want to learn
             about excel related things(VBA,Excel formula, Power query, DAX). If
-            you want to offer any project then please click on the
+            you want to offer any project then please click on the 
             <a href="/contact">Contact Me</a> and get in touch with me.{" "}
           </p>
           <p>
