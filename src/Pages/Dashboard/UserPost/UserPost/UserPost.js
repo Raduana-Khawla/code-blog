@@ -12,7 +12,6 @@ const UserPost = () => {
   const onSubmit = (value) => {
     const data = { ...value, userId: admin._id };
     data.excelBlog = editorRef.current.getContent();
-    console.log(data);
     fetch("https://radiant-stream-89624.herokuapp.com/addPost", {
       method: "POST",
       headers: {
@@ -53,7 +52,7 @@ const UserPost = () => {
           placeholder="Date"
           type="text"
           value={dt}
-          readOnly="true"
+          readOnly={true}
         />
         <br />
         <br />

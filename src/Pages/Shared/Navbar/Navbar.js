@@ -38,7 +38,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/allPosts">
+                <Link className="nav-link" to="/postLink">
                   <span className="spanTag">Posts</span>
                 </Link>
               </li>
@@ -60,42 +60,47 @@ const Navbar = () => {
                 </li>
               )}
               {user?.email ? (
-                <button
-                  className="bg-success text-light"
-                  onClick={logOut}
-                  variant="light"
-                >
-                  Logout
-                </button>
+                <div className="d-flex">
+                  <button
+                    className="bg-success text-light"
+                    onClick={logOut}
+                    variant="light"
+                  >
+                    Logout
+                  </button>
+                  <li className="pic">
+                    <img
+                      className="w-75 h-100 rounded-circle"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Profile Pic"
+                      src={user?.photoURL}
+                      alt="photo"
+                    />
+                  </li>
+                </div>
               ) : (
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">
-                    <span className="spanTag bg-success p-3">Login</span>
-                  </Link>
-                </li>
+                <div className="d-flex">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                      <span className="spanTag bg-success p-3">Login</span>
+                    </Link>
+                  </li>
+                  <br />
+                  <li className="pic">
+                    <img
+                      className="w-75 h-100 rounded-circle"
+                      src="https://i.ibb.co/FWQmPZr/pngtree-beautiful-admin-roles-line-vector-icon-png-image-5256998.jpg"
+                      alt="photo"
+                    />
+                  </li>
+                </div>
               )}
               <li className="nav-item">
                 <Link className="nav-link" to="/notFound">
                   <span className="spanTag">NotFound</span>
                 </Link>
               </li>
-              {user?.photoURL ? (
-                <li className="pic">
-                  <img
-                    className="w-75 h-100 rounded-circle"
-                    src={user?.photoURL}
-                    alt="photo"
-                  />
-                </li>
-              ) : (
-                <li className="pic">
-                  <img
-                    className="w-75 h-100 rounded-circle"
-                    src="https://i.ibb.co/FWQmPZr/pngtree-beautiful-admin-roles-line-vector-icon-png-image-5256998.jpg"
-                    alt="photo"
-                  />
-                </li>
-              )}
             </ul>
           </div>
         </div>

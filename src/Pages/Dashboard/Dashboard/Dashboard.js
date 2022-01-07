@@ -2,7 +2,8 @@ import React from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import "./Dashboard.css";
 import UserPost from "../UserPost/UserPost/UserPost";
-import AllPosts from "../../AllPosts/AllPosts";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import PostLink from "../../PostLink/PostLink";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -19,7 +20,7 @@ const Dashbaord = () => {
                 <li className="dashboard-menu mt-5">UserPost</li>
               </Link>
               <div className="admin-dashboard">
-                <Link to={`${url}/allPosts`}>
+                <Link to={`${url}/postLink`}>
                   <li className="dashboard-menu">All Posts</li>
                 </Link>
               </div>
@@ -31,8 +32,11 @@ const Dashbaord = () => {
               <Route exact path={`${path}/userPost`}>
                 <UserPost></UserPost>
               </Route>
-              <Route exact path={`${path}/allPosts`}>
-                <AllPosts></AllPosts>
+              <Route exact path={`${path}/postLink`}>
+                <PostLink></PostLink>
+              </Route>
+              <Route exact path={`${path}/makeAdmin`}>
+                <MakeAdmin></MakeAdmin>
               </Route>
             </Switch>
           </div>

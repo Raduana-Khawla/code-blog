@@ -4,10 +4,10 @@
 .search-container{
     /* background-color: rgba(0, 0, 0, 0.85); */
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     margin: 20px;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 .search-container input{
-    width: 50%;
+    width: 350px;
 }

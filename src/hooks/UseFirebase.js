@@ -26,7 +26,7 @@ const useFirebase = () => {
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
-  const provider = new FacebookAuthProvider();
+  // const provider = new FacebookAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
   const registerUser = (email, password, name, history) => {
@@ -83,28 +83,27 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const FacebookSign = (location, history) => {
-    setIsLoading(true);
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        saveUser(user.email, user.displayName, "PUT");
-        setAuthError("");
-        const destination = location?.state?.from || "/";
-        history.replace(destination);
-      })
-      .catch((error) => {
-        setAuthError(error.message);
-      })
-      .finally(() => setIsLoading(false));
-  };
+  // const FacebookSign = (location, history) => {
+  //   setIsLoading(true);
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       setUser(user);
+  //       saveUser(user.email, user.displayName, "PUT");
+  //       setAuthError("");
+  //       const destination = location?.state?.from || "/";
+  //       history.replace(destination);
+  //     })
+  //     .catch((error) => {
+  //       setAuthError(error.message);
+  //     })
+  //     .finally(() => setIsLoading(false));
+  // };
   const signInWithGithub = (location, history) => {
     setIsLoading(true);
     signInWithPopup(auth, githubProvider)
       .then((result) => {
         const user = result.user;
-        setUser(user);
         saveUser(user.email, user.displayName, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
@@ -133,13 +132,13 @@ const useFirebase = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://radiant-stream-89624.herokuapp.com/users/${user.email}`)
+    fetch(`https://radiant-stream-89624.herokuapp.com/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
         setAdmin(data.admin);
       });
-  }, [user.email]);
+  }, [user?.email]);
 
   const logOut = () => {
     setIsLoading(true);
@@ -174,7 +173,6 @@ const useFirebase = () => {
     loginUser,
     signInWithGoogle,
     logOut,
-    FacebookSign,
     signInWithGithub,
   };
 };

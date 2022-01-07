@@ -13,6 +13,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ShowsPost from "./Pages/ShowsPost/ShowsPost";
 import FileDownloader from "./Pages/DownloadFiles/FileDownloader/FileDownloader";
 import AdminRoute from "./Components/Shared/Login/AdminRoute/AdminRoute";
+import PostLink from "./Pages/PostLink/PostLink";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route path="/allPosts">
               <AllPosts></AllPosts>
+            </Route>
+            <Route path="/postLink">
+              <PostLink></PostLink>
             </Route>
             <Route path="/service/:singlePostId">
               <ShowsPost></ShowsPost>
