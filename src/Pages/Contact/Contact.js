@@ -10,7 +10,7 @@ export default function ContactUs() {
 
     emailjs
       .sendForm(
-        "service_ihwo1an",
+        "service_bsfspbc",
         "template_fl7yhi6",
         form.current,
         "user_5vg19LeIk2nF4Y0HIomVF"
@@ -28,11 +28,11 @@ export default function ContactUs() {
   }
 
   return (
-    <section className="contact py-5">
+    <section className="contact">
       <div className="container">
         <div className="row">
           <div className="section-header text-center text-white">
-            <h5 className="design2">Contact Us</h5>
+            <h5 className="design2">Contact Me</h5>
             <h1 className="text-danger">Contact With Me</h1>
           </div>
           <div className="col-md-6 py-3">

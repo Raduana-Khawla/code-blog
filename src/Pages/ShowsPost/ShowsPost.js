@@ -17,7 +17,7 @@ const ShowsPost = (props) => {
   const [isAddImage, setIsAddImage] = useState(false);
 
   const [showDetail, setShowDetail] = useState({});
-
+  console.log(showDetail);
   const [comments, setComments] = useState([]);
   const [isAddComment, setIsAddComment] = useState(false);
 
@@ -115,25 +115,34 @@ const ShowsPost = (props) => {
         <div className="details-container my-3">
           <div className="row my-5 ms-5">
             <div className="col-md-10 col-sm-10">
-              <div className="property1 rounded w-100 h-75">
-                <h3 className="text-dark ms-auto fs-5 fw-bold">
-                  {showDetail?.Author}
-                </h3>
-                <h1 className="text-left fs-6">
-                  Posted on{showDetail?.date} by Code-Blog
-                </h1>
-                <hr />
-                <p className="text-dark">{showDetail?.Title}</p>
-                <div
-                  id="highlighter_168045"
-                  className="col-md-12 col-sm-12 my-3 syntaxhighlighter vb text-start"
-                >
-                  {htmlFromCMS && htmlFrom(htmlFromCMS)}
-                </div>
-              </div>
+              {showDetail.Title !== undefined ? (
+                <>
+                  <div className="property1 rounded w-100 h-75">
+                    <h3 className="text-dark ms-auto fs-5 fw-bold">
+                      {showDetail?.Author}
+                    </h3>
+                    <h1 className="text-left fs-6">
+                      Posted on{showDetail?.date} by Code-Blog
+                    </h1>
+                    <hr />
+                    <p className="text-dark">
+                      {showDetail ? showDetail?.Title : ""}
+                    </p>
+                    <div
+                      id="highlighter_168045"
+                      className="col-md-12 col-sm-12 my-3 syntaxhighlighter vb text-start"
+                    >
+                      {htmlFromCMS && htmlFrom(htmlFromCMS)}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
             </div>
             <div className="col-md-12 col-sm-12">
               <div className="text-start">
+                {" "}
                 {findPost.map((data) => (
                   <div className="p-3">
                     <div className="row d-flex">
@@ -182,7 +191,7 @@ const ShowsPost = (props) => {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))}{" "}
               </div>
               <br />
               <div className="bg p-3 col-md-6 col-sm-6">

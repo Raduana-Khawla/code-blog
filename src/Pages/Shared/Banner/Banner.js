@@ -3,29 +3,37 @@ import Typical from "react-typical";
 
 const Banner = () => {
   return (
-    <section>
+    <section className="container">
       <div className="row">
-        <div className="col-md-8 col-sm-8">
+        <div className="col-md-10 col-sm-10">
           <div className="text-success fs-1 fw-bold text-center">
             <Typical
               steps={[
                 "HI! This is Code Bloging Website.",
                 1000,
-                "We Are the Best!",
+                "Let's learn and grow together",
                 500,
               ]}
               loop={Infinity}
               wrapper="p"
             />
           </div>
-          <p className="container text-danger">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis,
-            eligendi! Aliquam iure vel ad corporis in mollitia adipisci. Nihil
-            optio laboriosam delectus itaque adipisci provident ipsam ea a at
-            natus. eligendi! Aliquam iure vel ad corporis in mollitia adipisci.
-            Nihil optio laboriosam delectus itaque adipisci provident ipsam ea a
-            at natus.
+          <p>
+            Welcome to my website. Please check posts collection if you want to
+            learn about excel related things(VBA,Excel formula, Power query,
+            DAX). If you want to offer any project then please click on the
+            <a href="/contact">"Contact Me"</a> and get in touch with me.{" "}
           </p>
+          <p>
+            {" "}
+            If you want to post your article on my website then please email me
+            about your interested and then we can talk further.
+          </p>
+          <p>
+            If you want to see my work then please check{" "}
+            <a href="/exploreProjects">"Explore Projects"</a>.{" "}
+          </p>
+          <p>Thanks again for your interested in my website.</p>
           <div className="container w-100 h-75">
             <div
               id="carouselExampleIndicators"

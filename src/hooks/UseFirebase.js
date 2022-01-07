@@ -132,12 +132,14 @@ const useFirebase = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://radiant-stream-89624.herokuapp.com/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setIsLoading(false);
-        setAdmin(data.admin);
-      });
+    if (!user.email) {
+      fetch(`https://radiant-stream-89624.herokuapp.com/users/${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setIsLoading(false);
+          setAdmin(data.admin);
+        });
+    }
   }, [user?.email]);
 
   const logOut = () => {

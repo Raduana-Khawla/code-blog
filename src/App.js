@@ -14,6 +14,7 @@ import ShowsPost from "./Pages/ShowsPost/ShowsPost";
 import FileDownloader from "./Pages/DownloadFiles/FileDownloader/FileDownloader";
 import AdminRoute from "./Components/Shared/Login/AdminRoute/AdminRoute";
 import PostLink from "./Pages/PostLink/PostLink";
+import ExploreProjects from "./Pages/ExploreProjects/ExploreProjects";
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <ContactUs></ContactUs>
+            </Route>
+            <Route path="/exploreProjects">
+              <ExploreProjects></ExploreProjects>
             </Route>
             <Route path="/adminRoute">
               <AdminRoute></AdminRoute>

@@ -48,8 +48,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/exploreProjects">
+                  <span className="spanTag">Explore Projects</span>
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/contact">
-                  <span className="spanTag">Contact Us</span>
+                  <span className="spanTag">Contact Me</span>
                 </Link>
               </li>
               {admin && (
