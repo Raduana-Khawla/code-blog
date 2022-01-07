@@ -19,21 +19,21 @@ const Banner = () => {
             />
           </div>
           <p>
-            Welcome to my website. Please check posts collection if you want to
-            learn about excel related things(VBA,Excel formula, Power query,
-            DAX). If you want to offer any project then please click on the
-            <a href="/contact">"Contact Me"</a> and get in touch with me.{" "}
+            Welcome to my website. Please check posts Tab if you want to learn
+            about excel related things(VBA,Excel formula, Power query, DAX). If
+            you want to offer any project then please click on the
+            <a href="/contact">Contact Me</a> and get in touch with me.{" "}
           </p>
           <p>
             {" "}
             If you want to post your article on my website then please email me
-            about your interested and then we can talk further.
+            about your interest and then we can talk further.
           </p>
           <p>
             If you want to see my work then please check{" "}
-            <a href="/exploreProjects">"Explore Projects"</a>.{" "}
+            <a href="/exploreProjects">Explore Projects</a>.{" "}
           </p>
-          <p>Thanks again for your interested in my website.</p>
+          <p>Thanks again for your interest in my website.</p>
           <div className="container w-100 h-75">
             <div
               id="carouselExampleIndicators"
