@@ -131,16 +131,20 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
+    let isUnmount = false;
     setIsLoading(true);
-    if (!user.email) {
-      fetch(`https://radiant-stream-89624.herokuapp.com/users/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setIsLoading(false);
+    fetch(`https://radiant-stream-89624.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!isUnmount) {
           setAdmin(data.admin);
-        });
-    }
-  }, [user?.email]);
+          setIsLoading(false);
+        }
+      });
+    return () => {
+      isUnmount = true;
+    };
+  }, [user.email]);
 
   const logOut = () => {
     setIsLoading(true);
@@ -154,8 +158,8 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const saveUser = (email, displayName, method) => {
-    const user = { email, displayName };
+  const saveUser = (email, displayName, username, method) => {
+    const user = { email, displayName, username };
     fetch("https://radiant-stream-89624.herokuapp.com/users", {
       method: method,
       headers: {

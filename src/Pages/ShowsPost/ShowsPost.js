@@ -17,7 +17,6 @@ const ShowsPost = (props) => {
   const [isAddImage, setIsAddImage] = useState(false);
 
   const [showDetail, setShowDetail] = useState({});
-  console.log(showDetail);
   const [comments, setComments] = useState([]);
   const [isAddComment, setIsAddComment] = useState(false);
 
@@ -30,11 +29,11 @@ const ShowsPost = (props) => {
     }
     const formData = new FormData();
     formData.append("image", image);
-    formData.append("postId", showDetail._id);
+    formData.append("postId", showDetail?._id);
 
     setIsAddImage(false);
     // post images
-    fetch("https://radiant-stream-89624.herokuapp.com/image", {
+    fetch("http://localhost:5000/image", {
       method: "POST",
       body: formData,
     })
@@ -51,8 +50,9 @@ const ShowsPost = (props) => {
       });
   };
   // load images
+  console.log(images);
   useEffect(() => {
-    fetch("https://radiant-stream-89624.herokuapp.com/image")
+    fetch("http://localhost:5000/image")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, [isAddImage]);
@@ -143,55 +143,56 @@ const ShowsPost = (props) => {
             <div className="col-md-12 col-sm-12">
               <div className="text-start">
                 {" "}
-                {findPost.map((data) => (
-                  <div className="p-3">
-                    <div className="row d-flex">
-                      <div className="col-md-3 col-sm-3 d-flex">
-                        <div className="mx-3">
-                          <ul>
-                            {user?.photoURL ? (
-                              <li className="pic">
-                                <img
-                                  className="w-75 h-100 rounded-circle"
-                                  src={user?.photoURL}
-                                  alt="photo"
-                                />
-                              </li>
-                            ) : (
-                              <li className="pic">
-                                <img
-                                  className="w-75 h-100 rounded-circle"
-                                  src="https://i.ibb.co/FWQmPZr/pngtree-beautiful-admin-roles-line-vector-icon-png-image-5256998.jpg"
-                                  alt="photo"
-                                />
-                              </li>
-                            )}
-                          </ul>
+                <div className="p-3">
+                  <div className="row d-flex">
+                    {findPost.map((data) => (
+                      <>
+                        <div className="col-md-3 col-sm-3 d-flex">
+                          <div className="mx-3">
+                            <ul>
+                              {user?.photoURL ? (
+                                <li className="pic">
+                                  <img
+                                    className="w-75 h-100 rounded-circle"
+                                    src={user?.photoURL}
+                                    alt="photo"
+                                  />
+                                </li>
+                              ) : (
+                                <li className="pic">
+                                  <img
+                                    className="w-75 h-100 rounded-circle"
+                                    src="https://i.ibb.co/FWQmPZr/pngtree-beautiful-admin-roles-line-vector-icon-png-image-5256998.jpg"
+                                    alt="photo"
+                                  />
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+                          <div>
+                            <h6>{data?.name}</h6>
+                            <h6>{data?.date}</h6>
+                          </div>
                         </div>
-                        <div>
-                          <h6>{data?.name}</h6>
-                          <h6>{data?.date}</h6>
-                          {/* <a href="form">
-                            <h5>Reply</h5>
-                            <hr />
-                          </a> */}
+                        <div className="col-md-7 col-sm-7 mx-5">
+                          {data?.comments}
                         </div>
-                      </div>
-                      <div className="col-md-7 col-sm-7 mx-5">
-                        {data?.comments}
-                        {findImage.map((e) => (
-                          <Grid item xs={12} sm={6} md={6}>
-                            <img
-                              style={{ width: "400px", height: "350px" }}
-                              src={`data:image/png;base64,${e?.image}`}
-                              alt=""
-                            />
-                          </Grid>
-                        ))}
-                      </div>
+                      </>
+                    ))}{" "}
+                    <div className="col-md-7 col-sm-7 mx-5">
+                      {findImage.map((pic) => (
+                        <Grid item xs={12} sm={6} md={6}>
+                          <h3>hello</h3>
+                          <img
+                            style={{ width: "400px", height: "350px" }}
+                            src={`data:image/png;base64,${pic?.image}`}
+                            alt=""
+                          />
+                        </Grid>
+                      ))}
                     </div>
                   </div>
-                ))}{" "}
+                </div>
               </div>
               <br />
               <div className="bg p-3 col-md-6 col-sm-6">
@@ -259,6 +260,7 @@ const ShowsPost = (props) => {
                 <div className="text-start">
                   <Input
                     accept="image/*"
+                    multiple
                     type="file"
                     onChange={(e) => setImage(e.target.files[0])}
                   />
