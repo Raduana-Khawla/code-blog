@@ -1,5 +1,8 @@
 import React from "react";
 import Typical from "react-typical";
+import image1 from "../../../Images/HomeImage/Interface Design.png";
+import image2 from "../../../Images/HomeImage/OOP In VBA.png";
+import image3 from "../../../Images/HomeImage/Unit Testing.png";
 
 const Banner = () => {
   return (
@@ -20,12 +23,14 @@ const Banner = () => {
           </div>
           <p>
             Please check youtube if you want to learn about excel vba.{" "}
-            <a href="https://www.youtube.com/channel/UCL-q7_WvISkw0Ox9FRBBzmw">YouTube</a>
+            <a href="https://www.youtube.com/channel/UCL-q7_WvISkw0Ox9FRBBzmw">
+              YouTube
+            </a>
           </p>
           <p>
             Welcome to my website. Please check posts tab if you want to learn
             about excel related things(VBA,Excel formula, Power query, DAX). If
-            you want to offer any project then please click on the 
+            you want to offer any project then please click on the
             <a href="/contact">Contact Me</a> and get in touch with me.{" "}
           </p>
           <p>
@@ -68,25 +73,13 @@ const Banner = () => {
               </div>
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img
-                    src="https://i.ibb.co/4M5fcq5/maruf-hero.png?fbclid=IwAR1ea4hFC_YLTkH7RYfW6rq8sIW7ayoORFfIQjr5queca2rfzYp4-JqHo1w"
-                    className="d-block w-100 h-50"
-                    alt="..."
-                  />
+                  <img src={image1} className="w-100 h-50" alt="..." />
                 </div>
                 <div className="carousel-item">
-                  <img
-                    src="https://i.ibb.co/y6tkMrW/Coding-giphy1.gif"
-                    className="d-block w-100 h-50"
-                    alt="..."
-                  />
+                  <img src={image2} className="w-100 h-50" alt="..." />
                 </div>
                 <div className="carousel-item">
-                  <img
-                    src="https://i.ibb.co/1X44F8v/Coding-giphy11.gif"
-                    className="d-block w-100 h-50"
-                    alt="..."
-                  />
+                  <img src={image3} className="w-100 h-50" alt="..." />
                 </div>
               </div>
               <button
