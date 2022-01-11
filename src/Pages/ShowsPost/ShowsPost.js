@@ -33,7 +33,7 @@ const ShowsPost = (props) => {
 
     setIsAddImage(false);
     // post images
-    fetch("http://localhost:5000/images", {
+    fetch("https://radiant-stream-89624.herokuapp.com/images", {
       method: "POST",
       body: formData,
     })
@@ -52,7 +52,7 @@ const ShowsPost = (props) => {
   // load images
   console.log(images);
   useEffect(() => {
-    fetch("http://localhost:5000/images")
+    fetch("https://radiant-stream-89624.herokuapp.com/images")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, [isAddImage]);
