@@ -33,7 +33,7 @@ const ShowsPost = (props) => {
 
     setIsAddImage(false);
     // post images
-    fetch("http://localhost:5000/image", {
+    fetch("http://localhost:5000/images", {
       method: "POST",
       body: formData,
     })
@@ -52,7 +52,7 @@ const ShowsPost = (props) => {
   // load images
   console.log(images);
   useEffect(() => {
-    fetch("http://localhost:5000/image")
+    fetch("http://localhost:5000/images")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, [isAddImage]);
@@ -182,7 +182,6 @@ const ShowsPost = (props) => {
                     <div className="col-md-7 col-sm-7 mx-5">
                       {findImage.map((pic) => (
                         <Grid item xs={12} sm={6} md={6}>
-                          <h3>hello</h3>
                           <img
                             style={{ width: "400px", height: "350px" }}
                             src={`data:image/png;base64,${pic?.image}`}
