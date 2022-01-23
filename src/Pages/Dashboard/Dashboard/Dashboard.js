@@ -4,6 +4,7 @@ import "./Dashboard.css";
 import UserPost from "../UserPost/UserPost/UserPost";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import PostLink from "../../PostLink/PostLink";
+// import UploadImage from "../UploadImage/UploadImage";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -24,6 +25,9 @@ const Dashbaord = () => {
                   <li className="dashboard-menu">All Posts</li>
                 </Link>
               </div>
+              {/* <Link to={`${url}/uploadImage`}>
+                <li className="dashboard-menu">Upload Image</li>
+              </Link> */}
             </div>
           </div>
           <div className="col-md-9">
@@ -35,6 +39,9 @@ const Dashbaord = () => {
               <Route exact path={`${path}/postLink`}>
                 <PostLink></PostLink>
               </Route>
+              {/* <Route exact path={`${path}/uploadImage`}>
+                <UploadImage></UploadImage>
+              </Route> */}
               <Route exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
               </Route>

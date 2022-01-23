@@ -76,6 +76,7 @@ const UserPost = () => {
             "searchreplace visualblocks code fullscreen",
             "insertdatetime media table paste code help wordcount",
           ],
+          codesample_languages: [{ text: "VBA/VB", value: "net" }],
           mobile: {
             plugins:
               "print preview tinydrive powerpaste casechange importcss  searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image media link tinydrive code imagetools mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable",

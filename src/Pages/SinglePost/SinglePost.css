@@ -8,15 +8,16 @@
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
     color: black !important;
 }
-
 .syntaxhighlighter .keyword {
     font-weight: bold !important;
-}
-.syntaxhighlighter .keyword {
     color: #006699 !important;
 }
 .syntaxhighlighter code {
     display: inline !important;
+}
+.syntaxhighlighter caption {
+    padding-left: 50px;
+    color: rebeccapurple;
 }
 .syntaxhighlighter .string, .syntaxhighlighter .string a {
     color: blue !important;

@@ -12,6 +12,7 @@ const ShowsPost = (props) => {
   const { singlePostId } = useParams();
   const { register, handleSubmit } = useForm();
   const [images, setImages] = useState([]);
+  console.log(images);
   const [image, setImage] = useState(null);
   const [success, setSuccess] = useState(false);
   const [isAddImage, setIsAddImage] = useState(false);
@@ -255,22 +256,24 @@ const ShowsPost = (props) => {
               </div>
               <br />
               <br />
-              <form onSubmit={imagehandleSubmit}>
-                <div className="text-start">
-                  <Input
-                    accept="image/*"
-                    multiple
-                    type="file"
-                    onChange={(e) => setImage(e.target.files[0])}
-                  />
-                  <br />
-                  <br />
-                  <Button variant="contained" type="submit">
-                    Add Image
-                  </Button>
-                </div>
-              </form>
-              {success && <p style={{ color: "green" }}>{success}</p>}
+              <div className="col-md-6 col-sm-6">
+                <form onSubmit={imagehandleSubmit}>
+                  <div className="text-start">
+                    <Input
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={(e) => setImage(e.target.files[0])}
+                    />
+                    <br />
+                    <br />
+                    <Button variant="contained" type="submit">
+                      Add Image
+                    </Button>
+                  </div>
+                </form>
+                {success && <p style={{ color: "green" }}>{success}</p>}
+              </div>
             </div>
           </div>
         </div>
