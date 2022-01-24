@@ -11,7 +11,7 @@
 }
 .syntaxhighlighter caption {
     padding-left: 5px;
-    align-items: right;
+    align-items:center;
     color: rgb(153, 51, 59);
 }
 .syntaxhighlighter .string {
@@ -54,6 +54,9 @@ table {
 }
 .syntaxhighlighter .line.alt1 {
     background-color: white;
+}
+.syntaxhighlighter{
+    line-height: 1.1em;
 }
 /* .box{
     border: 1px solid black;
