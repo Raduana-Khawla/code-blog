@@ -1,30 +1,68 @@
-.box{
+
+ .syntaxhighlighter .plain {
+    color: black;
+}
+.syntaxhighlighter .keyword {
+    font-weight: bold;
+    color: #006699;
+}
+.syntaxhighlighter code {
+    display: inline;
+}
+.syntaxhighlighter caption {
+    padding-left: 5px;
+    align-items: right;
+    color: rgb(153, 51, 59);
+}
+.syntaxhighlighter .string {
+    color: blue;
+}
+.syntaxhighlighter .comments {
+    color: #008200;
+}
+code, kbd, tt, var {
+    font-family: Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
+    font-size: 16px;
+}
+code, kbd, pre, samp {
+    font-family: monospace,monospace;
+    font-size: 1em;
+}
+.syntaxhighlighter .gutter {
+    color: #afafaf;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.syntaxhighlighter table td.gutter .line {
+    text-align: right;
+    padding: 0 0.5em 0 1em;
+}
+.syntaxhighlighter .gutter .line {
+    border-right: 3px solid #6ce26c;
+}
+.syntaxhighlighter .line.alt2 {
+    background-color: white;
+}
+.syntaxhighlighter .line {
+    white-space: pre;
+}
+
+.syntaxhighlighter table td.code .line {
+    padding: 0 1em;
+}
+.syntaxhighlighter .line.alt1 {
+    background-color: white;
+}
+/* .box{
     border: 1px solid black;
     height: 480px;
     overflow: hidden;
     overflow-y: scroll;
     overflow-x: scroll;
-}
-.syntaxhighlighter .plain, .syntaxhighlighter .plain a {
-    color: black !important;
-}
-.syntaxhighlighter .keyword {
-    font-weight: bold !important;
-    color: #006699 !important;
-}
-.syntaxhighlighter code {
-    display: inline !important;
-}
-.syntaxhighlighter caption {
-    padding-left: 50px;
-    color: rebeccapurple;
-}
-.syntaxhighlighter .string, .syntaxhighlighter .string a {
-    color: blue !important;
-}
-.syntaxhighlighter .comments, .syntaxhighlighter .comments a {
-    color: #008200 !important;
-}
+} */
+/*
 .syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .syntaxhighlighter table caption, .syntaxhighlighter textarea {
     background: none !important;
     border: 0 !important;
@@ -55,42 +93,6 @@
     -o-box-shadow: none !important;
     box-shadow: none !important;
 }
-code, kbd, tt, var {
-    font-family: Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
-    font-size: 16px;
-}
-code, kbd, pre, samp {
-    font-family: monospace,monospace;
-    font-size: 1em;
-}
+} */
 
-.syntaxhighlighter .gutter {
-    color: #afafaf !important;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-.syntaxhighlighter table td.gutter .line {
-    text-align: right !important;
-    padding: 0 0.5em 0 1em !important;
-}
-.syntaxhighlighter .gutter .line {
-    border-right: 3px solid #6ce26c !important;
-}
-.syntaxhighlighter .line.alt2 {
-    background-color: white !important;
-}
-.syntaxhighlighter .line {
-    white-space: pre !important;
-}
 
-.syntaxhighlighter table td.code .line {
-    padding: 0 1em !important;
-}
-.syntaxhighlighter .line.alt1 {
-    background-color: white !important;
-}
-.syntaxhighlighter .line {
-    white-space: pre !important;
-}
