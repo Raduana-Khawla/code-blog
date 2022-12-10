@@ -12,7 +12,7 @@ const UserPost = () => {
   const onSubmit = (value) => {
     const data = { ...value, userId: admin._id };
     data.excelBlog = editorRef.current.getContent();
-    fetch("https://radiant-stream-89624.herokuapp.com/addPost", {
+    fetch("http://localhost:3000/addPost", {
       method: "POST",
       headers: {
         authorization: `Bearer ${token}`,

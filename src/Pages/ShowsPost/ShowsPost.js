@@ -34,7 +34,7 @@ const ShowsPost = (props) => {
 
     setIsAddImage(false);
     // post images
-    fetch("https://radiant-stream-89624.herokuapp.com/images", {
+    fetch("http://localhost:3000/images", {
       method: "POST",
       body: formData,
     })
@@ -53,7 +53,7 @@ const ShowsPost = (props) => {
   // load images
   console.log(images);
   useEffect(() => {
-    fetch("https://radiant-stream-89624.herokuapp.com/images")
+    fetch("http://localhost:3000/images")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, [isAddImage]);
@@ -63,7 +63,7 @@ const ShowsPost = (props) => {
   const onSubmit = (data) => {
     data.postId = showDetail._id;
     setIsAddComment(false);
-    fetch("https://radiant-stream-89624.herokuapp.com/addcomment", {
+    fetch("http://localhost:3000/addcomment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -77,7 +77,7 @@ const ShowsPost = (props) => {
 
   // display comments
   useEffect(() => {
-    fetch(`https://radiant-stream-89624.herokuapp.com/comments`)
+    fetch(`http://localhost:3000/comments`)
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [isAddComment]);
@@ -88,9 +88,7 @@ const ShowsPost = (props) => {
   // console.log(findPost);
 
   useEffect(() => {
-    fetch(
-      `https://radiant-stream-89624.herokuapp.com/singleService/${singlePostId}`
-    )
+    fetch(`http://localhost:3000/singleService/${singlePostId}`)
       .then((res) => res.json())
       .then((data) => {
         setShowDetail(data);

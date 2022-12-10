@@ -6,7 +6,7 @@ const AdminReply = ({ commentID }) => {
 
   const onSubmit = (data) => {
     const userComment = { data, commentID };
-    fetch("https://radiant-stream-89624.herokuapp.com/addReply", {
+    fetch("http://localhost:3000/addReply", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userComment),

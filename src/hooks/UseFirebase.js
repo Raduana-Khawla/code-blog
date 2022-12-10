@@ -116,7 +116,7 @@ const useFirebase = () => {
   useEffect(() => {
     let isUnmount = false;
     setIsLoading(true);
-    fetch(`https://radiant-stream-89624.herokuapp.com/users/${user.email}`)
+    fetch(`http://localhost:3000/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (!isUnmount) {
@@ -143,7 +143,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, username, method) => {
     const user = { email, displayName, username };
-    fetch("https://radiant-stream-89624.herokuapp.com/users", {
+    fetch("http://localhost:3000/users", {
       method: method,
       headers: {
         "content-type": "application/json",

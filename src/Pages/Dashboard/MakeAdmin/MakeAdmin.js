@@ -12,7 +12,7 @@ const MakeAdmin = () => {
   };
   const handleAdminSubmit = (e) => {
     const user = { email };
-    fetch("https://radiant-stream-89624.herokuapp.com/users/admin", {
+    fetch("http://localhost:3000/users/admin", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,

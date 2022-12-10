@@ -10,7 +10,7 @@ const PostLink = ({ date }) => {
 
   useEffect(() => {
     axios
-      .get(`https://radiant-stream-89624.herokuapp.com/allPosts`)
+      .get(`http://localhost:3000/allPosts`)
       .then(function (response) {
         // handle success
         setPosts(response.data);
