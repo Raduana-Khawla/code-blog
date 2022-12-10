@@ -1,101 +1,57 @@
-
- .syntaxhighlighter .plain {
-    color: black;
-}
-.syntaxhighlighter .keyword {
+.col-md-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+    }
+   .col-sm-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+    } 
+    .text-start {
+    text-align: left;
+    }
+    .syntaxhighlighter .plain {
+     color: black;
+    }
+    .syntaxhighlighter .keyword {
     font-weight: bold;
     color: #006699;
-}
-.syntaxhighlighter code {
+    }
+    .syntaxhighlighter code {
     display: inline;
-}
-.syntaxhighlighter caption {
-    padding-left: 5px;
+    } 
+     .syntaxhighlighter caption {
     align-items:center;
     color: rgb(153, 51, 59);
-}
-.syntaxhighlighter .string {
+    } 
+     .syntaxhighlighter .string {
     color: blue;
-}
-.syntaxhighlighter .comments {
+    }
+    .syntaxhighlighter .comments {
     color: #008200;
-}
-code, kbd, tt, var {
+    }	
+    code, kbd, tt, var {
     font-family: Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace;
     font-size: 16px;
-}
-code, kbd, pre, samp {
+    }
+    code, kbd, pre, samp {
     font-family: monospace,monospace;
     font-size: 1em;
-}
-.syntaxhighlighter .gutter {
+    }
+    .syntaxhighlighter .gutter {
     color: #afafaf;
-}
-table {
+    }
+    table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-.syntaxhighlighter table td.gutter .line {
+    }
+    .syntaxhighlighter table td.gutter .line {
     text-align: right;
     padding: 0 0.5em 0 1em;
-}
-.syntaxhighlighter .gutter .line {
+    }
+    .syntaxhighlighter .gutter .line {
     border-right: 3px solid #6ce26c;
-}
-.syntaxhighlighter .line.alt2 {
-    background-color: white;
-}
-.syntaxhighlighter .line {
-    white-space: pre;
-}
-
-.syntaxhighlighter table td.code .line {
-    padding: 0 1em;
-}
-.syntaxhighlighter .line.alt1 {
-    background-color: white;
-}
-.syntaxhighlighter{
-    line-height: 1.1em;
-}
-/* .box{
-    border: 1px solid black;
-    height: 480px;
-    overflow: hidden;
-    overflow-y: scroll;
-    overflow-x: scroll;
-} */
-/*
-.syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .syntaxhighlighter table caption, .syntaxhighlighter textarea {
-    background: none !important;
-    border: 0 !important;
-    bottom: auto !important;
-    float: none !important;
-    height: auto !important;
-    left: auto !important;
-    line-height: 1.1em !important;
-    margin: 0 !important;
-    outline: 0 !important;
-    overflow: visible !important;
-    padding: 0 !important;
-    position: static !important;
-    right: auto !important;
-    text-align: left !important;
-    top: auto !important;
-    vertical-align: baseline !important;
-    width: auto !important;
-    box-sizing: content-box !important;
-    font-family: Monaco, "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
-    font-weight: normal !important;
-    font-style: normal !important;
-    font-size: 1em !important;
-    direction: ltr !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    -ms-box-shadow: none !important;
-    -o-box-shadow: none !important;
-    box-shadow: none !important;
-}
-} */
-
-
+    } 
+    .syntaxhighlighter table td.code .line {
+    padding: 0 1em; 
+    }
+   

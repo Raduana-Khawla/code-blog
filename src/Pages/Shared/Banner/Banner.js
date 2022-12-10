@@ -115,3 +115,71 @@ const Banner = () => {
 };
 
 export default Banner;
+
+// {
+//   <table border="0" cellspacing="0" cellpadding="0">
+//     <th><caption>ClearFilterFromAllSheet.bas</caption></th>
+//     <tbody>
+//       <tr>
+//         <td class="gutter">
+//           <div class="line number1 index0 alt2">1</div>
+//           <div class="line number2 index1 alt1">2</div>
+//           <div class="line number3 index2 alt2">3</div>
+//           <div class="line number4 index3 alt1">4</div>
+//           <div class="line number5 index4 alt2">5</div>
+//           <div class="line number6 index5 alt1">6</div>
+//           <div class="line number7 index6 alt2">7</div>
+//           <div class="line number8 index7 alt1">8</div>
+//           <div class="line number9 index8 alt2">9</div>
+//         </td>
+//         <td class="code">
+//           <div class="container">
+//             <div class="line number1 index0 alt2">
+//               <code class="vb plain">Attribute VB_Name =</code>
+//               <code class="vb string">"ClearFilterFromAllSheet"</code>
+//             </div>
+//             <div class="line number2 index1 alt1">
+//               <code class="vb keyword">Option Explicit</code>
+//             </div>
+//             <div class="line number3 index2 alt2">
+//               <code class="vb keyword">Public Sub</code>
+//               <code class="vb plain">clearAllFilter()</code>
+//             </div>
+//             <div class="line number4 index3 alt1">
+//               <code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+//               <code class="vb keyword">Dim</code>
+//               <code class="vb plain">ws</code>
+//               <code class="vb keyword">As</code>
+//               <code class="vb keyword">Worksheet</code>
+//             </div>
+//             <div class="line number5 index4 alt2">
+//               <code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+//               <code class="vb keyword">On Error</code>
+//               <code class="vb keyword">Resume Next</code>
+//             </div>
+//             <div class="line number6 index5 alt1">
+//               <code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+//               <code class="vb keyword">For Each</code>
+//               <code class="vb plain">ws</code>
+//               <code class="vb keyword">In</code>
+//               <code class="vb plain">ThisWorkbook.Worksheets</code>
+//             </div>
+//             <div class="line number7 index6 alt2">
+//               <code class="vb spaces">
+//                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//               </code>
+//               <code class="vb plain">ws.ShowAllData</code>
+//             </div>
+//             <div class="line number8 index7 alt1">
+//               <code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+//               <code class="vb keyword">Next</code>
+//               <code class="vb plain">ws</code>
+//             </div>
+//             <div class="line number9 index8 alt2">
+//               <code class="vb keyword">End Sub</code>
+//             </div>
+//           </div>
+//         </td>
+//       </tr>
+//     </tbody>
+//   </table>;

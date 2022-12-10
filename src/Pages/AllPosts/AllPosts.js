@@ -9,7 +9,7 @@ const AllPosts = () => {
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
-        // console.log(data);
+        console.log(data);
       })
       .catch((err) => console.log("all Post ", err));
   }, []);
