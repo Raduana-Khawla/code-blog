@@ -10,7 +10,7 @@ const PostLink = ({ date }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/allPosts`)
+      .get(`http://localhost:5000/allPosts`)
       .then(function (response) {
         // handle success
         setPosts(response.data);
@@ -53,8 +53,8 @@ const PostLink = ({ date }) => {
               </button>
             </div>
             <div>
-              {searchResult.map((item) => (
-                <h6 className="text-dark">
+              {searchResult?.map((item, index) => (
+                <h6 key={index} className="text-dark">
                   <Link to={`/services/${item._id}`}>{date}</Link>
                 </h6>
               ))}
@@ -69,14 +69,16 @@ const PostLink = ({ date }) => {
             <h4 className="mb-5">
               <u>Total Posts - {posts.length}</u>
             </h4>
-            {posts?.map((pd, index) => (
-              <h6 className="text-start mx-5">
-                <Link to={`/services/${pd._id}`}>
-                  {index}){pd?.Title}
-                  {pd?.length}
-                </Link>
-              </h6>
-            ))}
+            {posts?.map((pd, index) => {
+              return (
+                <div key={index} className="text-start mx-5">
+                  <Link to={`/services/${pd._id}`}>
+                    {index}){pd?.Title}
+                    {pd?.length}
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

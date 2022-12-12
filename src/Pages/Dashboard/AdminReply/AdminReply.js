@@ -6,7 +6,7 @@ const AdminReply = ({ commentID }) => {
 
   const onSubmit = (data) => {
     const userComment = { data, commentID };
-    fetch("http://localhost:3000/addReply", {
+    fetch("http://localhost:5000/addReply", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userComment),

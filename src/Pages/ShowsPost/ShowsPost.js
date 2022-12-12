@@ -12,7 +12,7 @@ const ShowsPost = (props) => {
   const { singlePostId } = useParams();
   const { register, handleSubmit } = useForm();
   const [images, setImages] = useState([]);
-  console.log(images);
+
   const [image, setImage] = useState(null);
   const [success, setSuccess] = useState(false);
   const [isAddImage, setIsAddImage] = useState(false);
@@ -20,7 +20,7 @@ const ShowsPost = (props) => {
   const [showDetail, setShowDetail] = useState({});
   const [comments, setComments] = useState([]);
   const [isAddComment, setIsAddComment] = useState(false);
-
+  console.log(singlePostId);
   const { user } = useAuth();
   // handle upload images
   const imagehandleSubmit = (e) => {
@@ -34,7 +34,7 @@ const ShowsPost = (props) => {
 
     setIsAddImage(false);
     // post images
-    fetch("http://localhost:3000/images", {
+    fetch("http://localhost:5000/images", {
       method: "POST",
       body: formData,
     })
@@ -53,7 +53,7 @@ const ShowsPost = (props) => {
   // load images
   console.log(images);
   useEffect(() => {
-    fetch("http://localhost:3000/images")
+    fetch("http://localhost:5000/images")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, [isAddImage]);
@@ -63,7 +63,7 @@ const ShowsPost = (props) => {
   const onSubmit = (data) => {
     data.postId = showDetail._id;
     setIsAddComment(false);
-    fetch("http://localhost:3000/addcomment", {
+    fetch("http://localhost:5000/addcomment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -77,7 +77,7 @@ const ShowsPost = (props) => {
 
   // display comments
   useEffect(() => {
-    fetch(`http://localhost:3000/comments`)
+    fetch(`http://localhost:5000/comments`)
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [isAddComment]);
@@ -88,7 +88,7 @@ const ShowsPost = (props) => {
   // console.log(findPost);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/singleService/${singlePostId}`)
+    fetch(`http://localhost:5000/singleService/${singlePostId}`)
       .then((res) => res.json())
       .then((data) => {
         setShowDetail(data);
@@ -144,8 +144,8 @@ const ShowsPost = (props) => {
                 {" "}
                 <div className="p-3">
                   <div className="row d-flex">
-                    {findPost.map((data) => (
-                      <>
+                    {findPost?.map((data, index) => (
+                      <div key={index}>
                         <div className="col-md-3 col-sm-3 d-flex">
                           <div className="mx-3">
                             <ul>
@@ -176,7 +176,7 @@ const ShowsPost = (props) => {
                         <div className="col-md-7 col-sm-7 mx-5">
                           {data?.comments}
                         </div>
-                      </>
+                      </div>
                     ))}{" "}
                     <div className="col-md-7 col-sm-7 mx-5">
                       {findImage.map((pic) => (
@@ -241,8 +241,10 @@ const ShowsPost = (props) => {
                     {...register("date")}
                     placeholder="Date"
                     type="text"
-                    value={dt}
-                    readOnly="true"
+                    // value={dt}
+                    // readOnly="true"
+                    readOnly={true}
+                    defaultValue={dt}
                   />
                   <br />
                   <input
