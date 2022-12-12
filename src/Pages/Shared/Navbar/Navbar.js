@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { admin, user, logOut } = UseFirebase();
-  console.log("hello user from ", user);
+  // console.log("hello user from ", user);
   return (
     <div>
       <nav className="navbar design1 navbar-expand-lg navbar-light">
@@ -64,7 +64,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               )}
-              {user?.email ? (
+              {user?.displayName ? (
                 <div className="d-flex">
                   <button
                     className="bg-success text-light"

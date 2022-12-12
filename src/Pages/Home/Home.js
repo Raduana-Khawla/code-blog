@@ -6,13 +6,7 @@ import Banner from "../Shared/Banner/Banner";
 
 const Home = () => {
   const { logOut } = useFirebase();
-  useEffect(() => {
-    fetch("http://localhost:5000/allPosts")
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err.message));
-    console.log("hello home js");
-  }, []);
+
   return (
     <div>
       <button onClick={() => logOut()}>logout</button>
